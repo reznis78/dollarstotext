@@ -10,7 +10,7 @@ namespace DollarsToText
     {
         static void Main(string[] args)
         {
-            int currencyValue = 40500;
+            int currencyValue = 4798;
 
             ConvertDollars2 testDollars = new ConvertDollars2();
 

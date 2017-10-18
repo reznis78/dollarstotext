@@ -61,33 +61,40 @@ namespace DollarsToText
                 _currencyString.Add(denominationPlural);
             }
 
-            if (currencyValue == 1)
+            if ((currencyValue == 1) && (_currencyString.Count == 0))
             {
                 _currencyString.Add(basicUnits[currencyValue]);
                 _currencyString.Add(denominationSingle);
+                currencyValue = 0;
             }
 
-            if ((currencyValue < 20) && (currencyValue > 1))
+            if ((currencyValue <= 20) && (currencyValue >= 1))
             {
                 _currencyString.Add(basicUnits[currencyValue]);
                 _currencyString.Add(denominationPlural);
             }
 
-            if ((currencyValue < 99) && (currencyValue > 20))
+            if ((currencyValue <= 99) && (currencyValue > 20))
             {
                 ConvertTens(currencyValue);
                 _currencyString.Add(denominationPlural);
             }
 
-            if ((currencyValue < 999) && (currencyValue > 100))
+            if ((currencyValue <= 999) && (currencyValue >= 100))
             {
                 ConvertHundreds(currencyValue);
                 _currencyString.Add(denominationPlural);
             }
 
-            if ((currencyValue < 999999) && (currencyValue > 1000))
+            if ((currencyValue <= 999999) && (currencyValue >= 1000))
             {
                 ConvertThousands(currencyValue);
+                _currencyString.Add(denominationPlural);
+            }
+
+            if ((currencyValue <= 999999999) && (currencyValue >= 1000000))
+            {
+                ConvertMillions(currencyValue);
                 _currencyString.Add(denominationPlural);
             }
         }
@@ -123,7 +130,7 @@ namespace DollarsToText
                 ConvertTens(currencyValue);
             }
 
-            if (currencyValue < 20 && currencyValue > 1)
+            if (currencyValue <= 20 && currencyValue >= 1)
             {
                 _currencyString.Add(basicUnits[currencyValue]);
             }
@@ -143,7 +150,7 @@ namespace DollarsToText
                 ConvertTens(adjustedValue);
             }
 
-            if ((currencyValue / 1000) < 21)
+            if ((currencyValue / 1000) <= 20)
             {
                 _currencyString.Add(basicUnits[currencyValue / 1000]);
             }
@@ -155,11 +162,42 @@ namespace DollarsToText
             else
             {
                 _currencyString.Add(" thousand ");
+                currencyValue = currencyValue % 1000;
+                ConvertCurrency(currencyValue);
             }    
 
-            currencyValue = currencyValue % 1000;
+            
+        }
 
-            ConvertHundreds(currencyValue);
+        public void ConvertMillions(int currencyValue)
+        {
+            if ((currencyValue / 1000000) > 99)
+            {
+                int adjustedValue = currencyValue / 1000000;
+                ConvertHundreds(adjustedValue);
+            }
+
+            if (((currencyValue / 1000000) < 100) && ((currencyValue / 1000000) > 20))
+            {
+                int adjustedValue = currencyValue / 1000000;
+                ConvertTens(adjustedValue);
+            }
+
+            if ((currencyValue / 1000000) <= 20)
+            {
+                _currencyString.Add(basicUnits[currencyValue / 1000000]);
+            }
+
+            if (currencyValue % 1000000 == 0)
+            {
+                _currencyString.Add(" million");
+            }
+            else
+            {
+                _currencyString.Add(" million ");
+                currencyValue = currencyValue % 1000000;
+                ConvertCurrency(currencyValue);
+            }           
         }
     }
 }
