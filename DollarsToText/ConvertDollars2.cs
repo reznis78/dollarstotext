@@ -50,42 +50,45 @@ namespace DollarsToText
 
         protected List<string> _currencyString = new List<string>();
 
+        protected string denominationSingle = " dollar";
+        protected string denominationPlural = " dollars";
+
         public void ConvertCurrency(int currencyValue)
         {
             if (currencyValue == 0)
             {
                 _currencyString.Add("zero");
-                _currencyString.Add(" dollars");
+                _currencyString.Add(denominationPlural);
             }
 
             if (currencyValue == 1)
             {
                 _currencyString.Add(basicUnits[currencyValue]);
-                _currencyString.Add(" dollar");
+                _currencyString.Add(denominationSingle);
             }
 
             if ((currencyValue < 20) && (currencyValue > 1))
             {
                 _currencyString.Add(basicUnits[currencyValue]);
-                _currencyString.Add(" dollars");
+                _currencyString.Add(denominationPlural);
             }
 
             if ((currencyValue < 99) && (currencyValue > 20))
             {
                 ConvertTens(currencyValue);
-                _currencyString.Add(" dollars");
+                _currencyString.Add(denominationPlural);
             }
 
             if ((currencyValue < 999) && (currencyValue > 100))
             {
                 ConvertHundreds(currencyValue);
-                _currencyString.Add(" dollars");
+                _currencyString.Add(denominationPlural);
             }
 
             if ((currencyValue < 999999) && (currencyValue > 1000))
             {
                 ConvertThousands(currencyValue);
-                _currencyString.Add(" dollars");
+                _currencyString.Add(denominationPlural);
             }
         }
 
