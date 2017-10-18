@@ -12,11 +12,11 @@ namespace DollarsToText
         {
             int currencyValue = 999999999;
 
-            ConvertDollars testDollars = new ConvertDollars();
+            ConvertBaseCurrency testDollars = new ConvertBaseCurrency();
 
             testDollars.ConvertCurrency(currencyValue);
 
-            foreach (var item in testDollars.CurrencyString)
+            foreach (var item in testDollars.BaseCurrencyString)
             {
                 Console.Write(item);
             }

@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConvertDollars.cs" />
+    <Compile Include="ConvertBaseCurrency.cs" />
+    <Compile Include="ConvertSubUnit.cs" />
     <Compile Include="IConvertCurrencyToText.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
