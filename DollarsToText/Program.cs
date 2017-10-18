@@ -10,9 +10,9 @@ namespace DollarsToText
     {
         static void Main(string[] args)
         {
-            int currencyValue = 4798;
+            int currencyValue = 999999999;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 

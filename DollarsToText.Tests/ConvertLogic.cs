@@ -15,13 +15,12 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 0;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.CurrencyString[0], "zero");
-            Assert.AreEqual(testDollars.CurrencyString[1], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 2);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 1);
         }
 
         [TestMethod]
@@ -29,13 +28,12 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 1;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.CurrencyString[0], "one");
-            Assert.AreEqual(testDollars.CurrencyString[1], " dollar");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 2);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 1);
         }
 
         [TestMethod]
@@ -43,13 +41,12 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 19;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.CurrencyString[0], "nineteen");
-            Assert.AreEqual(testDollars.CurrencyString[1], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 2);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 1);
         }
 
         [TestMethod]
@@ -57,14 +54,13 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 35;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.CurrencyString[0], "thirty");
             Assert.AreEqual(testDollars.CurrencyString[1], "five");
-            Assert.AreEqual(testDollars.CurrencyString[2], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 3);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 2);
         }
 
         [TestMethod]
@@ -72,14 +68,13 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 61;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.CurrencyString[0], "sixty");
             Assert.AreEqual(testDollars.CurrencyString[1], "one");
-            Assert.AreEqual(testDollars.CurrencyString[2], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 3);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 2);
         }
 
         [TestMethod]
@@ -87,15 +82,14 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 506;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.CurrencyString[0], "five");
             Assert.AreEqual(testDollars.CurrencyString[1], " hundred and ");
             Assert.AreEqual(testDollars.CurrencyString[2], "six");
-            Assert.AreEqual(testDollars.CurrencyString[3], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 4);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 3);
         }
 
         [TestMethod]
@@ -103,7 +97,7 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 646;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
@@ -111,8 +105,7 @@ namespace DollarsToText.Tests
             Assert.AreEqual(testDollars.CurrencyString[1], " hundred and ");
             Assert.AreEqual(testDollars.CurrencyString[2], "forty");
             Assert.AreEqual(testDollars.CurrencyString[3], "six");
-            Assert.AreEqual(testDollars.CurrencyString[4], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 5);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 4);
         }
 
         [TestMethod]
@@ -120,14 +113,13 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 500;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.CurrencyString[0], "five");
             Assert.AreEqual(testDollars.CurrencyString[1], " hundred");
-            Assert.AreEqual(testDollars.CurrencyString[2], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 3);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 2);
         }
 
         [TestMethod]
@@ -135,14 +127,13 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 2000;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.CurrencyString[0], "two");
             Assert.AreEqual(testDollars.CurrencyString[1], " thousand");
-            Assert.AreEqual(testDollars.CurrencyString[2], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 3);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 2);
         }
 
         [TestMethod]
@@ -150,7 +141,7 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 4798;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
@@ -160,8 +151,7 @@ namespace DollarsToText.Tests
             Assert.AreEqual(testDollars.CurrencyString[3], " hundred and ");
             Assert.AreEqual(testDollars.CurrencyString[4], "ninety");
             Assert.AreEqual(testDollars.CurrencyString[5], "eight");
-            Assert.AreEqual(testDollars.CurrencyString[6], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 7);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 6);
         }
 
         [TestMethod]
@@ -169,14 +159,13 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 80000;
             
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.CurrencyString[0], "eighty");
             Assert.AreEqual(testDollars.CurrencyString[1], " thousand");
-            Assert.AreEqual(testDollars.CurrencyString[2], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 3);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 2);
         }
 
         [TestMethod]
@@ -184,7 +173,7 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 40500;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
@@ -192,23 +181,21 @@ namespace DollarsToText.Tests
             Assert.AreEqual(testDollars.CurrencyString[1], " thousand ");
             Assert.AreEqual(testDollars.CurrencyString[2], "five");
             Assert.AreEqual(testDollars.CurrencyString[3], " hundred");
-            Assert.AreEqual(testDollars.CurrencyString[4], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 5);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 4);
         }
 
         public void HundredThousandsNumberRounded()
         {
             int currencyValue = 100000;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.CurrencyString[0], "one");
             Assert.AreEqual(testDollars.CurrencyString[1], " hundred");
             Assert.AreEqual(testDollars.CurrencyString[2], " thousand");
-            Assert.AreEqual(testDollars.CurrencyString[3], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 4);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 3);
         }
 
         [TestMethod]
@@ -216,7 +203,7 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 239543;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
@@ -229,7 +216,6 @@ namespace DollarsToText.Tests
             Assert.AreEqual(testDollars.CurrencyString[6], " hundred and ");
             Assert.AreEqual(testDollars.CurrencyString[7], "forty");
             Assert.AreEqual(testDollars.CurrencyString[8], "three");
-            Assert.AreEqual(testDollars.CurrencyString[9], " dollars");
             Assert.AreEqual(testDollars.CurrencyString.Count, 9);
         }
 
@@ -238,14 +224,13 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 2000000;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.CurrencyString[0], "two");
             Assert.AreEqual(testDollars.CurrencyString[1], " million");
-            Assert.AreEqual(testDollars.CurrencyString[2], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 3);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 2);
         }
 
         [TestMethod]
@@ -253,7 +238,7 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 5064501;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
@@ -265,7 +250,6 @@ namespace DollarsToText.Tests
             Assert.AreEqual(testDollars.CurrencyString[5], "five");
             Assert.AreEqual(testDollars.CurrencyString[6], " hundred and ");
             Assert.AreEqual(testDollars.CurrencyString[7], "one");
-            Assert.AreEqual(testDollars.CurrencyString[8], " dollars");
             Assert.AreEqual(testDollars.CurrencyString.Count, 8);
         }
 
@@ -274,14 +258,13 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 60000000;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.CurrencyString[0], "sixty");
             Assert.AreEqual(testDollars.CurrencyString[1], " million");
-            Assert.AreEqual(testDollars.CurrencyString[2], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 3);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 2);
         }
 
         [TestMethod]
@@ -289,15 +272,14 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 80000001;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.CurrencyString[0], "eighty");
             Assert.AreEqual(testDollars.CurrencyString[1], " million ");
             Assert.AreEqual(testDollars.CurrencyString[2], "one");
-            Assert.AreEqual(testDollars.CurrencyString[3], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 4);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 3);
         }
 
         [TestMethod]
@@ -305,15 +287,14 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 300000000;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.CurrencyString[0], "three");
             Assert.AreEqual(testDollars.CurrencyString[1], " hundred");
             Assert.AreEqual(testDollars.CurrencyString[2], " million");
-            Assert.AreEqual(testDollars.CurrencyString[3], " dollars");
-            Assert.AreEqual(testDollars.CurrencyString.Count, 4);
+            Assert.AreEqual(testDollars.CurrencyString.Count, 3);
         }
 
         [TestMethod]
@@ -321,12 +302,12 @@ namespace DollarsToText.Tests
         {
             int currencyValue = 999999999;
 
-            ConvertDollars2 testDollars = new ConvertDollars2();
+            ConvertDollars testDollars = new ConvertDollars();
 
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.CurrencyString[0], "nine");
-            Assert.AreEqual(testDollars.CurrencyString[1], " hundred");
+            Assert.AreEqual(testDollars.CurrencyString[1], " hundred and ");
             Assert.AreEqual(testDollars.CurrencyString[2], "ninety");
             Assert.AreEqual(testDollars.CurrencyString[3], "nine");
             Assert.AreEqual(testDollars.CurrencyString[4], " million ");
@@ -339,7 +320,6 @@ namespace DollarsToText.Tests
             Assert.AreEqual(testDollars.CurrencyString[11], " hundred and ");
             Assert.AreEqual(testDollars.CurrencyString[12], "ninety");
             Assert.AreEqual(testDollars.CurrencyString[13], "nine");
-            Assert.AreEqual(testDollars.CurrencyString[14], " dollars");
             Assert.AreEqual(testDollars.CurrencyString.Count, 14);
         }
 

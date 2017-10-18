@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DollarsToText
 {
-    public interface IConvertNumberToText
+    public interface IConvertCurrencyToText
     {
         void ConvertCurrency(int currencyValue);
     }

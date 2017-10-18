@@ -44,8 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConvertDollars.cs" />
-    <Compile Include="ConvertDollars2.cs" />
-    <Compile Include="IConvertNumberToText.cs" />
+    <Compile Include="IConvertCurrencyToText.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
