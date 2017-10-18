@@ -214,6 +214,110 @@ namespace DollarsToText.Tests
         }
 
         [TestMethod]
+        public void MillionsNumberRounded()
+        {
+            int currencyValue = 2000000;
+
+            ConvertDollars2 testDollars = new ConvertDollars2();
+
+            testDollars.ConvertCurrency(currencyValue);
+
+            Assert.AreEqual(testDollars.CurrencyString[0], "two");
+            Assert.AreEqual(testDollars.CurrencyString[1], " million");
+            Assert.AreEqual(testDollars.CurrencyString[2], " dollars");
+        }
+
+        [TestMethod]
+        public void MillionsNumber()
+        {
+            int currencyValue = 5064501;
+
+            ConvertDollars2 testDollars = new ConvertDollars2();
+
+            testDollars.ConvertCurrency(currencyValue);
+
+            Assert.AreEqual(testDollars.CurrencyString[0], "five");
+            Assert.AreEqual(testDollars.CurrencyString[1], " million ");
+            Assert.AreEqual(testDollars.CurrencyString[2], "sixty");
+            Assert.AreEqual(testDollars.CurrencyString[3], "four");
+            Assert.AreEqual(testDollars.CurrencyString[4], " thousand ");
+            Assert.AreEqual(testDollars.CurrencyString[5], "five");
+            Assert.AreEqual(testDollars.CurrencyString[6], " hundred and ");
+            Assert.AreEqual(testDollars.CurrencyString[7], "one");
+            Assert.AreEqual(testDollars.CurrencyString[8], " dollars");
+        }
+
+        [TestMethod]
+        public void TensMillionsNumberRounded()
+        {
+            int currencyValue = 60000000;
+
+            ConvertDollars2 testDollars = new ConvertDollars2();
+
+            testDollars.ConvertCurrency(currencyValue);
+
+            Assert.AreEqual(testDollars.CurrencyString[0], "sixty");
+            Assert.AreEqual(testDollars.CurrencyString[1], " million");
+            Assert.AreEqual(testDollars.CurrencyString[2], " dollars");
+        }
+
+        [TestMethod]
+        public void TensMillionsNumber()
+        {
+            int currencyValue = 80000001;
+
+            ConvertDollars2 testDollars = new ConvertDollars2();
+
+            testDollars.ConvertCurrency(currencyValue);
+
+            Assert.AreEqual(testDollars.CurrencyString[0], "eighty");
+            Assert.AreEqual(testDollars.CurrencyString[1], " million ");
+            Assert.AreEqual(testDollars.CurrencyString[2], "one");
+            Assert.AreEqual(testDollars.CurrencyString[3], " dollars");
+        }
+
+        [TestMethod]
+        public void HundredsMillionsNumberRounded()
+        {
+            int currencyValue = 300000000;
+
+            ConvertDollars2 testDollars = new ConvertDollars2();
+
+            testDollars.ConvertCurrency(currencyValue);
+
+            Assert.AreEqual(testDollars.CurrencyString[0], "three");
+            Assert.AreEqual(testDollars.CurrencyString[1], " hundred");
+            Assert.AreEqual(testDollars.CurrencyString[2], " million");
+            Assert.AreEqual(testDollars.CurrencyString[3], " dollars");
+        }
+
+        [TestMethod]
+        public void HundredsMillionsNumber()
+        {
+            int currencyValue = 999999999;
+
+            ConvertDollars2 testDollars = new ConvertDollars2();
+
+            testDollars.ConvertCurrency(currencyValue);
+
+            Assert.AreEqual(testDollars.CurrencyString[0], "nine");
+            Assert.AreEqual(testDollars.CurrencyString[1], " hundred");
+            Assert.AreEqual(testDollars.CurrencyString[2], "ninety");
+            Assert.AreEqual(testDollars.CurrencyString[3], "nine");
+            Assert.AreEqual(testDollars.CurrencyString[4], " million ");
+            Assert.AreEqual(testDollars.CurrencyString[5], "nine");
+            Assert.AreEqual(testDollars.CurrencyString[6], " hundred and ");
+            Assert.AreEqual(testDollars.CurrencyString[7], "ninety");
+            Assert.AreEqual(testDollars.CurrencyString[8], "nine");
+            Assert.AreEqual(testDollars.CurrencyString[9], " thousand ");
+            Assert.AreEqual(testDollars.CurrencyString[10], "nine");
+            Assert.AreEqual(testDollars.CurrencyString[11], " hundred and ");
+            Assert.AreEqual(testDollars.CurrencyString[12], "ninety");
+            Assert.AreEqual(testDollars.CurrencyString[13], "nine");
+            Assert.AreEqual(testDollars.CurrencyString[14], " dollars");
+        }
+
+        [TestMethod]
         public void SplitString()
         {
             string testInput = "9874,03";
