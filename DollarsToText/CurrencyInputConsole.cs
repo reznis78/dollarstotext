@@ -10,12 +10,32 @@ namespace DollarsToText
     {
         public string TrimmedUserInput { get { return _trimmedUserInput; } }
         public List<string> SplitCurrency { get { return _splitCurrency; } }
+        public bool ConvertBaseSuccess { get { return _convertBaseSuccess; } }
+        public bool ConvertSubUnitSuccess { get { return _convertSubUnitSuccess; } }
 
         int baseUnit;
         int subUnit;
 
+        bool _convertBaseSuccess = false;
+        bool _convertSubUnitSuccess = false;
+
+        string userInput;
         string _trimmedUserInput;
+
         List<string> _splitCurrency = new List<string>();
+
+        public void CurrencyParser()
+        {
+            while (_convertBaseSuccess == false || _convertSubUnitSuccess == false)
+            {
+                GetInput();
+                TrimUserInput(userInput);
+                CurrencySplitInput(_trimmedUserInput);
+                ConvertInput(_splitCurrency);
+            }
+
+            Console.WriteLine("Well Done");
+        }
 
         public void TrimUserInput(string input)
         {
@@ -27,42 +47,57 @@ namespace DollarsToText
             _splitCurrency = input.Split(',').ToList();
         }
 
-        public void CurrencyParser(string input)
+        public void GetInput()
         {
-
+            Console.WriteLine("Please enter a value:");
+            userInput = Console.ReadLine();
         }
 
-        public void CheckInputSize(List<string> input)
+        public void ConvertInput(List<string> input)
         {
-            if (input.Count > 3)
+            if (input.Count >= 3)
             {
-                Console.WriteLine("You have entered too many commas, please try again");
-                // Get Input
+                Console.WriteLine("You have entered too many comma's, please try again");
             }
             if (input.Count == 2)
             {
                 TryParseBaseUnit(input[0]);
                 TryParseSubUnit(input[1]);
             }
+            if (input.Count == 1)
+            {
+                TryParseBaseUnit(input[0]);
+                _convertSubUnitSuccess = true;
+            }
         }
 
         public void TryParseBaseUnit(string input)
         {
-            bool res = int.TryParse(input, out baseUnit);
+            _convertBaseSuccess = int.TryParse(input, out baseUnit);
 
-            if (res == false)
+            if (_convertBaseSuccess == false)
             {
-                //GetInput();
+                Console.WriteLine("You did not enter in a correct value, please try again.");
+                _convertBaseSuccess = false;
+            }
+            else
+            {
+                _convertBaseSuccess = true;
             }
         }
 
         public void TryParseSubUnit(string input)
         {
-            bool res = int.TryParse(input, out subUnit);
+            _convertSubUnitSuccess = int.TryParse(input, out subUnit);
 
-            if (res == false)
+            if (_convertSubUnitSuccess == false)
             {
-                //GetInput();
+                Console.WriteLine("You did not enter in a correct value, please try again.");
+                _convertSubUnitSuccess = false;
+            }
+            else
+            {
+                _convertSubUnitSuccess = true;
             }
         }
     }

@@ -10,16 +10,9 @@ namespace DollarsToText
     {
         static void Main(string[] args)
         {
-            string userInput = ("");
-
             CurrencyInputConsole testInput = new CurrencyInputConsole();
 
-            testInput.CurrencySplitInput(userInput);
-
-            foreach (var item in testInput.SplitCurrency)
-            {
-                Console.WriteLine(item);
-            }
+            testInput.CurrencyParser();
 
             Console.ReadLine();
         }

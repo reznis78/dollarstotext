@@ -9,6 +9,6 @@ namespace DollarsToText
     interface ICurrencyInput
     {
         void CurrencySplitInput(string userInput);
-        void CurrencyParser(string currencyInput);
+        void CurrencyParser();
     }
 }

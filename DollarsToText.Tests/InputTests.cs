@@ -10,16 +10,7 @@ namespace DollarsToText.Tests
     [TestClass]
     public class InputTests
     {
-        [TestMethod]
-        public void CurrencyInputNull()
-        {
-            string input = ("");
-
-            CurrencyInputConsole testInput = new CurrencyInputConsole();
-            testInput.CurrencySplitInput(input);
-
-            Assert.();
-        }
+        //Test to trim currency input
 
         [TestMethod]
         public void CurrencyInputTrim()
@@ -31,6 +22,19 @@ namespace DollarsToText.Tests
             testInput.TrimUserInput(input);
 
             Assert.AreEqual(testInput.TrimmedUserInput, "1234,56");
+        }
+
+        //Tests to split currency
+
+        [TestMethod]
+        public void CurrencyInputNull()
+        {
+            string input = ("");
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.CurrencySplitInput(input);
+
+            Assert.AreEqual(testInput.SplitCurrency[0],"");
         }
 
         [TestMethod]
@@ -73,7 +77,7 @@ namespace DollarsToText.Tests
         }
 
         [TestMethod]
-        public void CurrencyInputSplitSubUnit()
+        public void CurrencyInputSplitSubUnitBaseEmpty()
         {
             string input = (",60");
 
@@ -85,37 +89,139 @@ namespace DollarsToText.Tests
             Assert.AreEqual(testInput.SplitCurrency[1], "60");
         }
 
-        /*[TestMethod]
+        [TestMethod]
+        public void CurrencyInputSplitSubUnit()
+        {
+            string input = ("0,60");
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+
+            testInput.CurrencySplitInput(input);
+
+            Assert.AreEqual(testInput.SplitCurrency[0], "0");
+            Assert.AreEqual(testInput.SplitCurrency[1], "60");
+        }
+
+        //Tests to ensure correct conversion
+
+        [TestMethod]
+        public void CurrencyInputBaseEmpty()
+        {
+            List<string> input = new List<string>() { "" };
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.ConvertInput(input);
+
+            Assert.IsFalse(testInput.ConvertBaseSuccess);
+        }
+
+        [TestMethod]
+        public void CurrencyInputBaseCorrect()
+        {
+            List<string> input = new List<string>() { "50" };
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.ConvertInput(input);
+
+            Assert.IsTrue(testInput.ConvertBaseSuccess);
+        }
+
+        [TestMethod]
+        public void CurrencyInputBaseandSubEmpty()
+        {
+            List<string> input = new List<string>() { "", "" };
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.ConvertInput(input);
+
+            Assert.IsFalse(testInput.ConvertBaseSuccess);
+            Assert.IsFalse(testInput.ConvertSubUnitSuccess);
+        }
+
+        [TestMethod]
+        public void CurrencyInputBaseandSubCorrect()
+        {
+            List<string> input = new List<string>() { "23131", "43" };
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.ConvertInput(input);
+
+            Assert.IsTrue(testInput.ConvertBaseSuccess);
+            Assert.IsTrue(testInput.ConvertSubUnitSuccess);
+        }
+
+        [TestMethod]
+        public void CurrencyInputBaseCorrectandSubEmpty()
+        {
+            List<string> input = new List<string>() { "231", "" };
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.ConvertInput(input);
+
+            Assert.IsTrue(testInput.ConvertBaseSuccess);
+            Assert.IsFalse(testInput.ConvertSubUnitSuccess);
+        }
+
+        [TestMethod]
+        public void CurrencyInputBaseEmptyandSubCorrect()
+        {
+            List<string> input = new List<string>() { "", "23" };
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.ConvertInput(input);
+
+            Assert.IsFalse(testInput.ConvertBaseSuccess);
+            Assert.IsTrue(testInput.ConvertSubUnitSuccess);
+        }
+
+        [TestMethod]
+        public void CurrencyInputTooManyCoomas()
+        {
+            List<string> input = new List<string>() { "", "23", "35" };
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.ConvertInput(input);
+
+            Assert.IsFalse(testInput.ConvertBaseSuccess);
+            Assert.IsFalse(testInput.ConvertSubUnitSuccess);
+        }
+
+        [TestMethod]
         public void CurrencyInputLettersBase()
         {
-            string input = ("21te");
+            List<string> input = new List<string>() { "fefe32" };
 
-            CurrencyInputNull(input);
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.ConvertInput(input);
 
-            Assert.IsFalse(CurrencyInputConsole.Success);
+            Assert.IsFalse(testInput.ConvertBaseSuccess);
         }
 
         [TestMethod]
         public void CurrencyInputLettersSubUnit()
         {
-            string input = ("0,4t");
+            List<string> input = new List<string>() { "0", "fefe32" };
 
-            CurrencyInputNull(input);
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.ConvertInput(input);
 
-            Assert.IsFalse(CurrencyInputConsole.Success);
+            Assert.IsTrue(testInput.ConvertBaseSuccess);
+            Assert.IsFalse(testInput.ConvertSubUnitSuccess);
         }
 
         [TestMethod]
         public void CurrencyInputPunctuationSubUnit()
         {
-            string input = ("0,?");
+            List<string> input = new List<string>() { "0", "?" };
 
-            CurrencyInputNull(input);
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.ConvertInput(input);
 
-            Assert.IsFalse(CurrencyInputConsole.Success);
+            Assert.IsTrue(testInput.ConvertBaseSuccess);
+            Assert.IsFalse(testInput.ConvertSubUnitSuccess);
         }
 
-        [TestMethod]
+        /*[TestMethod]
         public void CurrencyInputBaseLimit()
         {
             string input = ("9999999999");
