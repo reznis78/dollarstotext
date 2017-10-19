@@ -10,15 +10,16 @@ namespace DollarsToText.Tests
     [TestClass]
     public class InputTests
     {
-        /*[TestMethod]
+        [TestMethod]
         public void CurrencyInputNull()
         {
             string input = ("");
 
-            CurrencyInputNull(input);
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.CurrencySplitInput(input);
 
-            Assert.IsFalse(CurrencyInputConsole.Success);
-        }*/
+            Assert.();
+        }
 
         [TestMethod]
         public void CurrencyInputTrim()

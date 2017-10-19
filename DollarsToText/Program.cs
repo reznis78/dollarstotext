@@ -10,7 +10,7 @@ namespace DollarsToText
     {
         static void Main(string[] args)
         {
-            string userInput = ("123,45");
+            string userInput = ("");
 
             CurrencyInputConsole testInput = new CurrencyInputConsole();
 
