@@ -10,7 +10,7 @@ namespace DollarsToText.Tests
     [TestClass]
     public class InputTests
     {
-        [TestMethod]
+        /*[TestMethod]
         public void CurrencyInputNull()
         {
             string input = ("");
@@ -18,19 +18,33 @@ namespace DollarsToText.Tests
             CurrencyInputNull(input);
 
             Assert.IsFalse(CurrencyInputConsole.Success);
-        }
+        }*/
 
         [TestMethod]
         public void CurrencyInputTrim()
         {
-            string input = ("  1234  ");
+            string input = ("  1234,56  ");
 
-            CurrencyInputNull(input);
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
 
-            Assert.AreEqual(CurrencyInputConsole, "1234");
+            testInput.TrimUserInput(input);
+
+            Assert.AreEqual(testInput.TrimmedUserInput, "1234,56");
         }
 
         [TestMethod]
+        public void CurrencyInputSplit()
+        {
+            string input = ("123,45");
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+
+            testInput.CurrencySplitInput(input);
+
+            Assert.AreEqual(testInput.SplitCurrency[0], "123");
+        }
+
+        /*[TestMethod]
         public void CurrencyInputLettersBase()
         {
             string input = ("21te");
@@ -108,6 +122,6 @@ namespace DollarsToText.Tests
             CurrencyInputNull(input);
 
             Assert.IsFalse(CurrencyInputConsole.Success);
-        }
+        }*/
     }
 }

@@ -10,13 +10,13 @@ namespace DollarsToText
     {
         static void Main(string[] args)
         {
-            int currencyValue = 999999999;
+            string input = "1234,45";
 
-            ConvertBaseCurrency testDollars = new ConvertBaseCurrency();
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
 
-            testDollars.ConvertCurrency(currencyValue);
+            testInput.CurrencySplitInput(input);
 
-            foreach (var item in testDollars.BaseCurrencyString)
+            foreach (var item in testInput.SplitCurrency)
             {
                 Console.Write(item);
             }

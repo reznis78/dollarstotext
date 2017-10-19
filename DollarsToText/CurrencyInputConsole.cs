@@ -8,20 +8,25 @@ namespace DollarsToText
 {
     public class CurrencyInputConsole : ICurrencyInput
     {
-        protected bool success = false;
-        string[] splitCurrency;
-        string[] baseCurrency;
-        string userInput;
+        public string TrimmedUserInput { get { return _trimmedUserInput; } }
+        public string[] SplitCurrency { get { return _splitCurrency;  } }
 
-
-        public void CurrencySplitInput(string userInput)
+        string _trimmedUserInput;
+        string[] _splitCurrency;       
+        public void TrimUserInput(string userInput)
         {
-            userInput.Trim();
+            _trimmedUserInput = userInput.Trim();
+        }
 
-            if (userInput.Contains(","))
-            {
-                string[] splitCurrency = userInput.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-            }
+        public string[] CurrencySplitInput(string _trimmedUserInput)
+        {
+            string[] _splitCurrency = _trimmedUserInput.Split(new string[] { "," }, StringSplitOptions.None);
+            return _splitCurrency;
+        }
+
+        public void CurrencyParser(string userInput)
+        {
+
         }
     }
 }
