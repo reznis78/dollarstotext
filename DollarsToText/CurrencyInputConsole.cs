@@ -9,19 +9,21 @@ namespace DollarsToText
     public class CurrencyInputConsole : ICurrencyInput
     {
         public string TrimmedUserInput { get { return _trimmedUserInput; } }
-        public string[] SplitCurrency { get { return _splitCurrency;  } }
+        public List<string> SplitCurrency { get { return _splitCurrency; } }
 
         string _trimmedUserInput;
-        string[] _splitCurrency;       
-        public void TrimUserInput(string userInput)
+        List<string> _splitCurrency = new List<string>();
+
+        public void TrimUserInput(string input)
         {
-            _trimmedUserInput = userInput.Trim();
+            _trimmedUserInput = input.Trim();
         }
 
-        public string[] CurrencySplitInput(string _trimmedUserInput)
+        public void CurrencySplitInput(string input)
         {
-            string[] _splitCurrency = _trimmedUserInput.Split(new string[] { "," }, StringSplitOptions.None);
-            return _splitCurrency;
+            _splitCurrency = _trimmedUserInput.Split(',').ToList();
+            _splitCurrency.Add("45");
+
         }
 
         public void CurrencyParser(string userInput)
