@@ -10,11 +10,13 @@ namespace DollarsToText
     {
         static void Main(string[] args)
         {
-            string input = "1234,45";
+            string userInput = ("123,45");
 
-            List<string> splitCurrency = input.Split(',').ToList();
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
 
-            foreach (var item in splitCurrency)
+            testInput.CurrencySplitInput(userInput);
+
+            foreach (var item in testInput.SplitCurrency)
             {
                 Console.WriteLine(item);
             }

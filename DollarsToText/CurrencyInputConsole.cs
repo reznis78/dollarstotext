@@ -21,9 +21,7 @@ namespace DollarsToText
 
         public void CurrencySplitInput(string input)
         {
-            _splitCurrency = _trimmedUserInput.Split(',').ToList();
-            _splitCurrency.Add("45");
-
+            _splitCurrency = input.Split(',').ToList();
         }
 
         public void CurrencyParser(string userInput)
