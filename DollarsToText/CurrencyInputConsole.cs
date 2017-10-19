@@ -24,7 +24,7 @@ namespace DollarsToText
             _splitCurrency = input.Split(',').ToList();
         }
 
-        public void CurrencyParser(string userInput)
+        public void CurrencyParser()
         {
 
         }
