@@ -42,6 +42,46 @@ namespace DollarsToText.Tests
             testInput.CurrencySplitInput(input);
 
             Assert.AreEqual(testInput.SplitCurrency[0], "123");
+            Assert.AreEqual(testInput.SplitCurrency[1], "45");
+        }
+
+        [TestMethod]
+        public void CurrencyInputSplitNull()
+        {
+            string input = (",");
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+
+            testInput.CurrencySplitInput(input);
+
+            Assert.AreEqual(testInput.SplitCurrency[0], "");
+            Assert.AreEqual(testInput.SplitCurrency[1], "");
+        }
+
+        [TestMethod]
+        public void CurrencyInputSplitBase()
+        {
+            string input = ("50");
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+
+            testInput.CurrencySplitInput(input);
+
+            Assert.AreEqual(testInput.SplitCurrency[0], "50");
+            Assert.AreEqual(testInput.SplitCurrency.Count, 1);
+        }
+
+        [TestMethod]
+        public void CurrencyInputSplitSubUnit()
+        {
+            string input = (",60");
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+
+            testInput.CurrencySplitInput(input);
+
+            Assert.AreEqual(testInput.SplitCurrency[0], "");
+            Assert.AreEqual(testInput.SplitCurrency[1], "60");
         }
 
         /*[TestMethod]
