@@ -57,6 +57,7 @@ namespace DollarsToText
 
             if (currencyValue % 10 != 0)
             {
+                _baseCurrencyString.Add("-");
                 _baseCurrencyString.Add(basicUnits[currencyValue % 10]);
             }
             
