@@ -60,11 +60,24 @@ namespace DollarsToText
             {
                 Console.WriteLine("You have entered too many comma's, please try again");
             }
+
             if (input.Count == 2)
             {
+
                 TryParseBaseUnit(input[0]);
-                TryParseSubUnit(input[1]);
+
+                //Checks that the sub unit value is not a single char, which means the input was .1 for example
+                if (input[1].Length == 1)
+                {
+                    Console.WriteLine("You must enter at least two numbers for a sub unit");
+                    _convertSubUnitSuccess = false;
+                }
+                else
+                {
+                    TryParseSubUnit(input[1]);
+                }                
             }
+
             if (input.Count == 1)
             {
                 TryParseBaseUnit(input[0]);
@@ -72,6 +85,8 @@ namespace DollarsToText
             }
         }
 
+        //The next two functions also includes a check 
+        //to make sure that the resulting integer is not negative or too large
         public void TryParseBaseUnit(string input)
         {
             _convertBaseSuccess = int.TryParse(input, out baseUnit);
