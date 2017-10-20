@@ -10,16 +10,11 @@ namespace DollarsToText
     {
         static void Main(string[] args)
         {
-            int currencyValue = 999999999;
+            List<string> input = new List<string>() { "","" };
 
-            ConvertBaseCurrency testDollars = new ConvertBaseCurrency();
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
 
-            testDollars.ConvertCurrency(currencyValue);
-
-            foreach (var item in testDollars.BaseCurrencyString)
-            {
-                Console.Write(item);
-            }
+            testInput.ConvertInput(input);
 
             Console.ReadLine();
         }

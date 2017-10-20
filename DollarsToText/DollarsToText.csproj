@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="ConvertBaseCurrency.cs" />
     <Compile Include="ConvertSubUnit.cs" />
+    <Compile Include="CurrencyInputConsole.cs" />
     <Compile Include="IConvertCurrencyToText.cs" />
+    <Compile Include="ICurrencyInput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
