@@ -14,7 +14,7 @@ namespace DollarsToText
 
             CurrencyInputConsole testInput = new CurrencyInputConsole();
 
-            testInput.ConvertInput(input);
+            testInput.CurrencyParser();
 
             Console.ReadLine();
         }
