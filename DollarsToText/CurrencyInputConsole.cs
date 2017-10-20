@@ -24,6 +24,7 @@ namespace DollarsToText
 
         List<string> _splitCurrency = new List<string>();
 
+        //Core Method that keeps the user in a loop until the inputs are correct
         public void CurrencyParser()
         {
             while (_convertBaseSuccess == false || _convertSubUnitSuccess == false)
@@ -77,13 +78,10 @@ namespace DollarsToText
 
             if (_convertBaseSuccess == false)
             {
-                Console.WriteLine("You did not enter in a correct value, please try again.");
-                _convertBaseSuccess = false;
+                baseUnit = -1;
             }
-            else
-            {
-                _convertBaseSuccess = true;
-            }
+            
+            CheckBaseIntSize(baseUnit);    
         }
 
         public void TryParseSubUnit(string input)
@@ -92,12 +90,35 @@ namespace DollarsToText
 
             if (_convertSubUnitSuccess == false)
             {
-                Console.WriteLine("You did not enter in a correct value, please try again.");
-                _convertSubUnitSuccess = false;
+                subUnit = 0;
+            }
+            
+            CheckSubUnitIntSize(subUnit);
+        }
+
+        public void CheckBaseIntSize(int input)
+        {
+            if (baseUnit < 999999999 && baseUnit >= 0)
+            {
+                _convertBaseSuccess = true;
             }
             else
             {
+                Console.WriteLine("Please enter a valid value for base unit between 0 and 999999999");
+                _convertBaseSuccess = false;
+            }
+        }
+
+        public void CheckSubUnitIntSize(int input)
+        {
+            if (subUnit < 99 && subUnit > 0)
+            {
                 _convertSubUnitSuccess = true;
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid value for sub unit between 0 and 99");
+                _convertSubUnitSuccess = false;
             }
         }
     }

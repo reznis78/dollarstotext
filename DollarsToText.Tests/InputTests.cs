@@ -221,6 +221,51 @@ namespace DollarsToText.Tests
             Assert.IsFalse(testInput.ConvertSubUnitSuccess);
         }
 
+        [TestMethod]
+        public void CurrencyInputOneDecimalSubUnit()
+        {
+            List<string> input = new List<string>() { "0", "1" };
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.ConvertInput(input);
+
+            Assert.IsTrue(testInput.ConvertBaseSuccess);
+            Assert.IsFalse(testInput.ConvertSubUnitSuccess);
+        }
+
+        [TestMethod]
+        public void CurrencyInputBaseTooLong()
+        {
+            List<string> input = new List<string>() { "1999999999" };
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.ConvertInput(input);
+
+            Assert.IsFalse(testInput.ConvertBaseSuccess);
+        }
+
+        [TestMethod]
+        public void CurrencyInputSubUnitTooLong()
+        {
+            List<string> input = new List<string>() { "0", "999" };
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.ConvertInput(input);
+
+            Assert.IsFalse(testInput.ConvertSubUnitSuccess);
+        }
+
+        [TestMethod]
+        public void CurrencyInputBaseUnitNegative()
+        {
+            List<string> input = new List<string>() { "-50", "999" };
+
+            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            testInput.ConvertInput(input);
+
+            Assert.IsFalse(testInput.ConvertSubUnitSuccess);
+        }
+
         /*[TestMethod]
         public void CurrencyInputBaseLimit()
         {
