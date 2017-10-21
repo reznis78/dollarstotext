@@ -10,10 +10,10 @@ namespace DollarsToText
     {
         public StringBuilder BaseCurrencyBuilder { get { return baseCurrencyBuilder; } }
     
-        string baseDenominationSingle = " dollar";
-        string baseDenominationPlural = " dollars";
-        string subUnitDenominationSingle = " cent";
-        string subUnitDenominationPlural = " cents";
+        string baseDenominationSingle = "dollar";
+        string baseDenominationPlural = "dollars";
+        string subUnitDenominationSingle = "cent";
+        string subUnitDenominationPlural = "cents";
 
         StringBuilder baseCurrencyBuilder = new StringBuilder();
 
