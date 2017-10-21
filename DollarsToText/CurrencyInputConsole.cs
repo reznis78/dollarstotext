@@ -132,7 +132,7 @@ namespace DollarsToText
             }
             else
             {
-                Console.WriteLine("Please enter a valid value for sub unit between 0 and 99");
+                Console.WriteLine("Please enter a valid value for sub unit between 01 and 99");
                 _convertSubUnitSuccess = false;
             }
         }

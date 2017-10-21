@@ -10,13 +10,21 @@ namespace DollarsToText
     {
         static void Main(string[] args)
         {
-            List<string> input = new List<string>() { "","" };
+            int baseDollarValue = 1321321;
+            int subUnitValue = 25;
 
-            CurrencyInputConsole testInput = new CurrencyInputConsole();
+            ConvertBaseCurrency baseDollars = new ConvertBaseCurrency();
+            ConvertSubUnit subUnitCents = new ConvertSubUnit();
 
-            testInput.ConvertInput(input);
+            baseDollars.ConvertCurrency(baseDollarValue);
+            subUnitCents.ConvertCurrency(subUnitValue);
 
-            Console.ReadLine();
+            DollarOutput getDollarsInText = new DollarOutput();
+
+            getDollarsInText.BaseStringBuilder(baseDollars.BaseCurrencyString);
+            getDollarsInText.SubUnitStringBuilder(subUnitCents.SubUnitString);
+
+            Console.WriteLine(getDollarsInText.DollarCurrencyBuilder);
         }
     }
 }

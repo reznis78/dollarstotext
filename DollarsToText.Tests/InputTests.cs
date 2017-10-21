@@ -265,55 +265,5 @@ namespace DollarsToText.Tests
 
             Assert.IsFalse(testInput.ConvertSubUnitSuccess);
         }
-
-        /*[TestMethod]
-        public void CurrencyInputBaseLimit()
-        {
-            string input = ("9999999999");
-
-            CurrencyInputNull(input);
-
-            Assert.IsFalse(CurrencyInputConsole.Success);
-        }
-
-        [TestMethod]
-        public void CurrencyInputSubUnitLimit()
-        {
-            string input = ("0,999");
-
-            CurrencyInputNull(input);
-
-            Assert.IsFalse(CurrencyInputConsole.Success);
-        }
-
-        [TestMethod]
-        public void CurrencyInputOnlyBase()
-        {
-            string input = ("99");
-
-            CurrencyInputNull(input);
-
-            Assert.AreEqual(input, "99");
-        }
-
-        [TestMethod]
-        public void CurrencyInputOnlyUnit()
-        {
-            string input = ("0,99");
-
-            CurrencyInputNull(input);
-
-            Assert.AreEqual(input, "0,99");
-        }
-
-        [TestMethod]
-        public void CurrencyInputOnlyUnit()
-        {
-            string input = ("0,99");
-
-            CurrencyInputNull(input);
-
-            Assert.IsFalse(CurrencyInputConsole.Success);
-        }*/
     }
 }
