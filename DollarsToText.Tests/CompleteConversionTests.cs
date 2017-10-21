@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace DollarsToText.Tests
 {
     [TestClass]
-    public class OutputTests
+    class CompleteConversionTests
     {
         [TestMethod]
         public void OutputOneBaseOnly()
@@ -19,7 +19,7 @@ namespace DollarsToText.Tests
 
             testOutput.BaseStringBuilder(input);
 
-            string result = testOutput.BaseCurrencyBuilder.ToString();
+            string result = testOutput.DollarCurrencyBuilder.ToString();
 
             Assert.AreEqual(result, "one dollar");
         }
@@ -27,13 +27,29 @@ namespace DollarsToText.Tests
         [TestMethod]
         public void OutputZeroBaseOnly()
         {
-            
+            List<string> input = new List<string>() { "zero" };
+
+            DollarOutput testOutput = new DollarOutput();
+
+            testOutput.BaseStringBuilder(input);
+
+            string result = testOutput.DollarCurrencyBuilder.ToString();
+
+            Assert.AreEqual(result, "zero dollars");
         }
 
         [TestMethod]
         public void OutputSmallBaseOnly()
         {
-            
+            List<string> input = new List<string>() { "five" };
+
+            DollarOutput testOutput = new DollarOutput();
+
+            testOutput.BaseStringBuilder(input);
+
+            string result = testOutput.DollarCurrencyBuilder.ToString();
+
+            Assert.AreEqual(result, "five dollars");
         }
 
         [TestMethod]
@@ -51,7 +67,15 @@ namespace DollarsToText.Tests
         [TestMethod]
         public void OutputTensRoundedWithoutSubUnit()
         {
+            List<string> input = new List<string>() { "forty" };
 
+            DollarOutput testOutput = new DollarOutput();
+
+            testOutput.BaseStringBuilder(input);
+
+            string result = testOutput.DollarCurrencyBuilder.ToString();
+
+            Assert.AreEqual(result, "forty dollars");
         }
 
         [TestMethod]
@@ -116,26 +140,27 @@ namespace DollarsToText.Tests
 
         [TestMethod]
         public void OutputMillionsBaseWithSubUnit()
-        {                 
-                          
-        }                 
-                          
-        [TestMethod]      
+        {
+
+        }
+
+        [TestMethod]
         public void OutputMillionsBaseWithoutSubUnit()
-        {                 
-                          
-        }                 
-                          
-        [TestMethod]      
+        {
+
+        }
+
+        [TestMethod]
         public void OutputMillionsBaseRoundedWithSubUnit()
-        {                 
-                          
-        }                 
-                          
-        [TestMethod]      
+        {
+
+        }
+
+        [TestMethod]
         public void OutputMillionsBaseRoundedWithoutSubUnit()
         {
 
         }
+
     }
 }
