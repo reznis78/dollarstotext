@@ -10,7 +10,7 @@ namespace DollarsToText
     {
         static void Main(string[] args)
         {
-            int baseDollarValue = 25;
+            int baseDollarValue = 1321321;
             int subUnitValue = 25;
 
             ConvertBaseCurrency baseDollars = new ConvertBaseCurrency();

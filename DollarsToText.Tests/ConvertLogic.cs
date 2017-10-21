@@ -89,7 +89,7 @@ namespace DollarsToText.Tests
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.BaseCurrencyString[0], "five");
-            Assert.AreEqual(testDollars.BaseCurrencyString[1], " hundred and ");
+            Assert.AreEqual(testDollars.BaseCurrencyString[1], " hundred ");
             Assert.AreEqual(testDollars.BaseCurrencyString[2], "six");
             Assert.AreEqual(testDollars.BaseCurrencyString.Count, 3);
         }
@@ -104,7 +104,7 @@ namespace DollarsToText.Tests
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.BaseCurrencyString[0], "six");
-            Assert.AreEqual(testDollars.BaseCurrencyString[1], " hundred and ");
+            Assert.AreEqual(testDollars.BaseCurrencyString[1], " hundred ");
             Assert.AreEqual(testDollars.BaseCurrencyString[2], "forty");
             Assert.AreEqual(testDollars.BaseCurrencyString[3], "-");
             Assert.AreEqual(testDollars.BaseCurrencyString[4], "six");
@@ -151,7 +151,7 @@ namespace DollarsToText.Tests
             Assert.AreEqual(testDollars.BaseCurrencyString[0], "four");
             Assert.AreEqual(testDollars.BaseCurrencyString[1], " thousand ");
             Assert.AreEqual(testDollars.BaseCurrencyString[2], "seven");
-            Assert.AreEqual(testDollars.BaseCurrencyString[3], " hundred and ");
+            Assert.AreEqual(testDollars.BaseCurrencyString[3], " hundred ");
             Assert.AreEqual(testDollars.BaseCurrencyString[4], "ninety");
             Assert.AreEqual(testDollars.BaseCurrencyString[5], "-");
             Assert.AreEqual(testDollars.BaseCurrencyString[6], "eight");
@@ -212,13 +212,13 @@ namespace DollarsToText.Tests
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.BaseCurrencyString[0], "two");
-            Assert.AreEqual(testDollars.BaseCurrencyString[1], " hundred and ");
+            Assert.AreEqual(testDollars.BaseCurrencyString[1], " hundred ");
             Assert.AreEqual(testDollars.BaseCurrencyString[2], "thirty");
             Assert.AreEqual(testDollars.BaseCurrencyString[3], "-");
             Assert.AreEqual(testDollars.BaseCurrencyString[4], "nine");
             Assert.AreEqual(testDollars.BaseCurrencyString[5], " thousand ");
             Assert.AreEqual(testDollars.BaseCurrencyString[6], "five");
-            Assert.AreEqual(testDollars.BaseCurrencyString[7], " hundred and ");
+            Assert.AreEqual(testDollars.BaseCurrencyString[7], " hundred ");
             Assert.AreEqual(testDollars.BaseCurrencyString[8], "forty");
             Assert.AreEqual(testDollars.BaseCurrencyString[9], "-");
             Assert.AreEqual(testDollars.BaseCurrencyString[10], "three");
@@ -255,7 +255,7 @@ namespace DollarsToText.Tests
             Assert.AreEqual(testDollars.BaseCurrencyString[4], "four");
             Assert.AreEqual(testDollars.BaseCurrencyString[5], " thousand ");
             Assert.AreEqual(testDollars.BaseCurrencyString[6], "five");
-            Assert.AreEqual(testDollars.BaseCurrencyString[7], " hundred and ");
+            Assert.AreEqual(testDollars.BaseCurrencyString[7], " hundred ");
             Assert.AreEqual(testDollars.BaseCurrencyString[8], "one");
             Assert.AreEqual(testDollars.BaseCurrencyString.Count, 9);
         }
@@ -314,19 +314,19 @@ namespace DollarsToText.Tests
             testDollars.ConvertCurrency(currencyValue);
 
             Assert.AreEqual(testDollars.BaseCurrencyString[0], "nine");
-            Assert.AreEqual(testDollars.BaseCurrencyString[1], " hundred and ");
+            Assert.AreEqual(testDollars.BaseCurrencyString[1], " hundred ");
             Assert.AreEqual(testDollars.BaseCurrencyString[2], "ninety");
             Assert.AreEqual(testDollars.BaseCurrencyString[3], "-");
             Assert.AreEqual(testDollars.BaseCurrencyString[4], "nine");
             Assert.AreEqual(testDollars.BaseCurrencyString[5], " million ");
             Assert.AreEqual(testDollars.BaseCurrencyString[6], "nine");
-            Assert.AreEqual(testDollars.BaseCurrencyString[7], " hundred and ");
+            Assert.AreEqual(testDollars.BaseCurrencyString[7], " hundred ");
             Assert.AreEqual(testDollars.BaseCurrencyString[8], "ninety");
             Assert.AreEqual(testDollars.BaseCurrencyString[9], "-");
             Assert.AreEqual(testDollars.BaseCurrencyString[10], "nine");
             Assert.AreEqual(testDollars.BaseCurrencyString[11], " thousand ");
             Assert.AreEqual(testDollars.BaseCurrencyString[12], "nine");
-            Assert.AreEqual(testDollars.BaseCurrencyString[13], " hundred and ");
+            Assert.AreEqual(testDollars.BaseCurrencyString[13], " hundred ");
             Assert.AreEqual(testDollars.BaseCurrencyString[14], "ninety");
             Assert.AreEqual(testDollars.BaseCurrencyString[15], "-");
             Assert.AreEqual(testDollars.BaseCurrencyString[16], "nine");

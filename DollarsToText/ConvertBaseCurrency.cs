@@ -73,7 +73,7 @@ namespace DollarsToText
             }
             else
             {
-                _baseCurrencyString.Add(" hundred and ");
+                _baseCurrencyString.Add(" hundred ");
             }
 
             currencyValue = currencyValue % 100;
