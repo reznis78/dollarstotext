@@ -11,9 +11,27 @@ namespace DollarsToText.Tests
     public class OutputTests
     {
         [TestMethod]
+        public void OutputOneBaseOnly()
+        {
+            List<string> input = new List<string>() { "1" };
+
+            DollarOutput testOutput = new DollarOutput();
+
+            testOutput.BaseStringBuilder(input);
+
+            Assert.AreEqual(input, "one dollar");
+        }
+
+        [TestMethod]
+        public void OutputZeroBaseOnly()
+        {
+            int input = 0;
+        }
+
+        [TestMethod]
         public void OutputSmallBaseOnly()
         {
-
+            int input = 5;
         }
 
         [TestMethod]
