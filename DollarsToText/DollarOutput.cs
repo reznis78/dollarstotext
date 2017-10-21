@@ -10,10 +10,10 @@ namespace DollarsToText
     {
         public StringBuilder DollarCurrencyBuilder { get { return dollarCurrencyBuilder; } }
     
-        string baseDenominationSingle = "dollar";
-        string baseDenominationPlural = "dollars";
-        string subUnitDenominationSingle = "cent";
-        string subUnitDenominationPlural = "cents";
+        string baseDenominationSingle = " dollar";
+        string baseDenominationPlural = " dollars";
+        string subUnitDenominationSingle = " cent";
+        string subUnitDenominationPlural = " cents";
 
         StringBuilder dollarCurrencyBuilder = new StringBuilder();
 
@@ -21,10 +21,10 @@ namespace DollarsToText
         {
             foreach (var item in baseInput)
             {
-                dollarCurrencyBuilder.Append(item).Append(" ");
+                dollarCurrencyBuilder.Append(item);
             }
 
-            if (dollarCurrencyBuilder.ToString() == "one ")
+            if (dollarCurrencyBuilder.ToString() == "one")
             {
                 dollarCurrencyBuilder.Append(baseDenominationSingle);
             }
@@ -40,7 +40,7 @@ namespace DollarsToText
             
             foreach (var item in subUnitInput)
             {
-                dollarCurrencyBuilder.Append(item).Append(" ");
+                dollarCurrencyBuilder.Append(item);
             }
 
             if (subUnitInput[0] == "one")

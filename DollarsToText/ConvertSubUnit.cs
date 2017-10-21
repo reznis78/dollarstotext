@@ -36,7 +36,7 @@ namespace DollarsToText
         public static string[] largeUnits =
                 {
                 "",
-                "",
+                "twenty",
                 "thirty",
                 "forty",
                 "fifty",
@@ -83,7 +83,6 @@ namespace DollarsToText
                 _subUnitString.Add("-");
                 _subUnitString.Add(basicUnits[currencyValue % 10]);
             }
-
         }
     }
 }

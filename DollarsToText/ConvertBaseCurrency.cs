@@ -69,11 +69,11 @@ namespace DollarsToText
             
             if (currencyValue % 100 == 0)
             {
-                _baseCurrencyString.Add("hundred");
+                _baseCurrencyString.Add(" hundred");
             }
             else
             {
-                _baseCurrencyString.Add("hundred and");
+                _baseCurrencyString.Add(" hundred and ");
             }
 
             currencyValue = currencyValue % 100;
@@ -110,11 +110,11 @@ namespace DollarsToText
 
             if (currencyValue % 1000 == 0)
             {
-                _baseCurrencyString.Add("thousand");
+                _baseCurrencyString.Add(" thousand");
             }
             else
             {
-                _baseCurrencyString.Add("thousand");
+                _baseCurrencyString.Add(" thousand ");
                 currencyValue = currencyValue % 1000;
                 ConvertCurrency(currencyValue);
             }    
@@ -143,11 +143,11 @@ namespace DollarsToText
 
             if (currencyValue % 1000000 == 0)
             {
-                _baseCurrencyString.Add("million");
+                _baseCurrencyString.Add(" million");
             }
             else
             {
-                _baseCurrencyString.Add("million");
+                _baseCurrencyString.Add(" million ");
                 currencyValue = currencyValue % 1000000;
                 ConvertCurrency(currencyValue);
             }           

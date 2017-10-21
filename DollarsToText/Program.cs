@@ -10,15 +10,21 @@ namespace DollarsToText
     {
         static void Main(string[] args)
         {
-            List<string> baseInput = new List<string>() { "five", "hundred", "and", "five" };
-            List<string> subUnitInput = new List<string>() { "one" };
+            int baseDollarValue = 25;
+            int subUnitValue = 25;
 
-            DollarOutput testOutput = new DollarOutput();
+            ConvertBaseCurrency baseDollars = new ConvertBaseCurrency();
+            ConvertSubUnit subUnitCents = new ConvertSubUnit();
 
-            testOutput.BaseStringBuilder(baseInput);
-            testOutput.SubUnitStringBuilder(subUnitInput);
+            baseDollars.ConvertCurrency(baseDollarValue);
+            subUnitCents.ConvertCurrency(subUnitValue);
 
-            Console.WriteLine(testOutput.DollarCurrencyBuilder);
+            DollarOutput getDollarsInText = new DollarOutput();
+
+            getDollarsInText.BaseStringBuilder(baseDollars.BaseCurrencyString);
+            getDollarsInText.SubUnitStringBuilder(subUnitCents.SubUnitString);
+
+            Console.WriteLine(getDollarsInText.DollarCurrencyBuilder);
         }
     }
 }

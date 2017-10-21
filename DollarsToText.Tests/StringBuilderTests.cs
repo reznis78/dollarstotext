@@ -41,7 +41,7 @@ namespace DollarsToText.Tests
         [TestMethod]
         public void StringBuilderBaseOnly()
         {
-            List<string> input = new List<string>() { "five", "hundred", "and", "five" };
+            List<string> input = new List<string>() { "five", " hundred and ", "five" };
 
             DollarOutput testOutput = new DollarOutput();
 
@@ -55,7 +55,7 @@ namespace DollarsToText.Tests
         [TestMethod]
         public void StringBuilderBaseWithOneSubUnit()
         {
-            List<string> baseInput = new List<string>() { "five", "hundred", "and", "five" };
+            List<string> baseInput = new List<string>() { "five", " hundred and ", "five" };
             List<string> subUnitInput = new List<string>() { "one" };
 
             DollarOutput testOutput = new DollarOutput();
@@ -84,7 +84,21 @@ namespace DollarsToText.Tests
             Assert.AreEqual(result, "one dollar and twenty cents");
         }
 
-        
-        
+        [TestMethod]
+        public void StringBuilderBaseWithSubUnitWithHyphen()
+        {
+            List<string> baseInput = new List<string>() { "ninety", "-", "five" };
+            List<string> subUnitInput = new List<string>() { "twenty", "-", "three" };
+
+            DollarOutput testOutput = new DollarOutput();
+
+            testOutput.BaseStringBuilder(baseInput);
+            testOutput.SubUnitStringBuilder(subUnitInput);
+
+            string result = testOutput.DollarCurrencyBuilder.ToString();
+
+            Assert.AreEqual(result, "ninety-five dollars and twenty-three cents");
+        }
+
     }
 }
