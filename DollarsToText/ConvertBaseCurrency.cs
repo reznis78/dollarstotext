@@ -63,6 +63,7 @@ namespace CurrencyNumberToText
             
         }
 
+        //If editing the word values below, then take care with the spaces
         public void ConvertHundreds(int currencyValue)
         {
             _baseCurrencyString.Add(basicUnits[(currencyValue / 100)]);
