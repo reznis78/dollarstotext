@@ -53,7 +53,6 @@ namespace CurrencyNumberToText
 
                 Console.WriteLine(dollarAndCentsOutput.DollarCurrencyBuilder);
             }
-            
         }
     }
 }
