@@ -67,9 +67,9 @@ namespace DollarsToText
                 TryParseBaseUnit(input[0]);
 
                 //Checks that the sub unit value is not a single char, which means the input was .1 for example
-                if (input[1].Length == 1)
+                if (input[1].Length != 2)
                 {
-                    Console.WriteLine("You must enter at least two numbers for a sub unit");
+                    Console.WriteLine("You must enter two numbers for a sub unit");
                     _convertSubUnitSuccess = false;
                 }
                 else
