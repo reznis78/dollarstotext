@@ -51,9 +51,9 @@ namespace CurrencyNumberToText
                 dollarAndCentsOutput.BaseStringBuilder(baseDollars.BaseCurrencyString);
                 dollarAndCentsOutput.SubUnitStringBuilder(subUnits.SubUnitString);
 
-                Console.WriteLine(dollarAndCentsOutput.DollarCurrencyBuilder);
+                Console.WriteLine(dollarAndCentsOutput.DollarCurrencyBuilder);  
             }
-            
+            Console.WriteLine(getUserInput.ToString());
         }
     }
 }

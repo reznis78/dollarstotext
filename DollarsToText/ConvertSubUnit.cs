@@ -84,5 +84,20 @@ namespace CurrencyNumberToText
                 _subUnitString.Add(basicUnits[currencyValue % 10]);
             }
         }
+
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
+
+            if (SubUnitString != null)
+            {
+                result.Append("ConvertSubUnit : ");
+                foreach (var item in SubUnitString)
+                {
+                    result.Append(item).Append(", ");
+                }
+            }
+            return result.ToString();
+        }
     }
 }

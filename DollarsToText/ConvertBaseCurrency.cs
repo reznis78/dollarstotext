@@ -153,5 +153,20 @@ namespace CurrencyNumberToText
                 ConvertCurrency(currencyValue);
             }           
         }
+
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
+
+            if (BaseCurrencyString != null)
+            {
+                result.Append("ConvertBaseCurrency: ");
+                foreach (var item in BaseCurrencyString)
+                {
+                    result.Append(item).Append(", ");
+                }
+            }
+            return result.ToString();
+        }
     }
 }

@@ -138,5 +138,28 @@ namespace CurrencyNumberToText
                 _convertSubUnitSuccess = false;
             }
         }
+
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
+
+            result.AppendLine("CurrencyInputConsole :")
+                .Append("TrimmedUserInput : ").AppendLine(TrimmedUserInput)
+                .Append("ConvertBaseSuccess : ").AppendLine(ConvertBaseSuccess.ToString())
+                .Append("ConvertSubUnitSuccess : ").AppendLine(ConvertSubUnitSuccess.ToString())
+                .Append("BaseUnit : ").AppendLine(BaseUnit.ToString())
+                .Append("SubUnit : ").AppendLine(SubUnit.ToString());
+
+            if (SplitCurrency != null)
+            {
+                result.AppendLine("SplitCurrency : ");
+                foreach (var item in SplitCurrency)
+                {
+                    result.Append(item).Append(", ");
+                }
+            }
+
+            return result.ToString();
+        }
     }
 }
