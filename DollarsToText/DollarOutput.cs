@@ -54,5 +54,19 @@ namespace CurrencyNumberToText
                 dollarCurrencyBuilder.Append(subUnitDenominationPlural);
             }
         }
+
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
+
+            result.AppendLine("DollarOutput :")
+                .Append("baseDenominationSingle : ").AppendLine(baseDenominationSingle)
+                .Append("baseDenominationPlural : ").AppendLine(baseDenominationPlural)
+                .Append("subUnitDenominationSingle : ").AppendLine(subUnitDenominationSingle)
+                .Append("subUnitDenominationPlural : ").AppendLine(subUnitDenominationPlural)
+                .Append("DollarCurrencyBuilder : ").AppendLine(DollarCurrencyBuilder.ToString());
+
+            return result.ToString();
+        }
     }
 }
