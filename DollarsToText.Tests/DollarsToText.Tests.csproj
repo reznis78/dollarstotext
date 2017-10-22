@@ -56,9 +56,9 @@
     <Compile Include="InputUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DollarsToText\DollarsToText.csproj">
+    <ProjectReference Include="..\DollarsToText\CurrencyNumberToText.csproj">
       <Project>{2edd76c3-ca05-4616-8440-b55b5298b296}</Project>
-      <Name>DollarsToText</Name>
+      <Name>CurrencyNumberToText</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DollarsToText
+namespace CurrencyNumberToText
 {
     public class DollarOutput : ICurrencyOutput
     {
         public StringBuilder DollarCurrencyBuilder { get { return dollarCurrencyBuilder; } }
 
+        //By creating a new class and simply changing these values, you can easily output different currencies
+        //Remember to leave in a leading space, for the StringBuilder
         string baseDenominationSingle = " dollar";
         string baseDenominationPlural = " dollars";
         string subUnitDenominationSingle = " cent";
