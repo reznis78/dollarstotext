@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace DollarsToText.Tests
 {
     [TestClass]
-    public class StringBuilderTests
+    public class StringBuilderUnitTests
     {
         [TestMethod]
         public void StringBuilderOneBaseOnly()

@@ -12,9 +12,11 @@ namespace DollarsToText
         public List<string> SplitCurrency { get { return _splitCurrency; } }
         public bool ConvertBaseSuccess { get { return _convertBaseSuccess; } }
         public bool ConvertSubUnitSuccess { get { return _convertSubUnitSuccess; } }
+        public int BaseUnit { get { return _baseUnit; } }
+        public int SubUnit { get { return _subUnit; } }
 
-        int baseUnit;
-        int subUnit;
+        int _baseUnit;
+        int _subUnit;
 
         bool _convertBaseSuccess = false;
         bool _convertSubUnitSuccess = false;
@@ -34,8 +36,6 @@ namespace DollarsToText
                 CurrencySplitInput(_trimmedUserInput);
                 ConvertInput(_splitCurrency);
             }
-
-            Console.WriteLine("Well Done");
         }
 
         public void TrimUserInput(string input)
@@ -50,7 +50,7 @@ namespace DollarsToText
 
         public void GetInput()
         {
-            Console.WriteLine("Please enter a value:");
+            Console.WriteLine("Please enter a value and press enter to convert:");
             userInput = Console.ReadLine();
         }
 
@@ -67,9 +67,9 @@ namespace DollarsToText
                 TryParseBaseUnit(input[0]);
 
                 //Checks that the sub unit value is not a single char, which means the input was .1 for example
-                if (input[1].Length == 1)
+                if (input[1].Length != 2)
                 {
-                    Console.WriteLine("You must enter at least two numbers for a sub unit");
+                    Console.WriteLine("You must enter two numbers for a sub unit");
                     _convertSubUnitSuccess = false;
                 }
                 else
@@ -89,31 +89,31 @@ namespace DollarsToText
         //to make sure that the resulting integer is not negative or too large
         public void TryParseBaseUnit(string input)
         {
-            _convertBaseSuccess = int.TryParse(input, out baseUnit);
+            _convertBaseSuccess = int.TryParse(input, out _baseUnit);
 
             if (_convertBaseSuccess == false)
             {
-                baseUnit = -1;
+                _baseUnit = -1;
             }
             
-            CheckBaseIntSize(baseUnit);    
+            CheckBaseIntSize(_baseUnit);    
         }
 
         public void TryParseSubUnit(string input)
         {
-            _convertSubUnitSuccess = int.TryParse(input, out subUnit);
+            _convertSubUnitSuccess = int.TryParse(input, out _subUnit);
 
             if (_convertSubUnitSuccess == false)
             {
-                subUnit = 0;
+                _subUnit = 0;
             }
             
-            CheckSubUnitIntSize(subUnit);
+            CheckSubUnitIntSize(_subUnit);
         }
 
         public void CheckBaseIntSize(int input)
         {
-            if (baseUnit < 999999999 && baseUnit >= 0)
+            if (_baseUnit < 999999999 && _baseUnit >= 0)
             {
                 _convertBaseSuccess = true;
             }
@@ -126,7 +126,7 @@ namespace DollarsToText
 
         public void CheckSubUnitIntSize(int input)
         {
-            if (subUnit < 99 && subUnit > 0)
+            if (_subUnit < 100 && _subUnit > 0)
             {
                 _convertSubUnitSuccess = true;
             }

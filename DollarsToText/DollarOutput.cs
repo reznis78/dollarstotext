@@ -9,7 +9,7 @@ namespace DollarsToText
     public class DollarOutput : ICurrencyOutput
     {
         public StringBuilder DollarCurrencyBuilder { get { return dollarCurrencyBuilder; } }
-    
+
         string baseDenominationSingle = " dollar";
         string baseDenominationPlural = " dollars";
         string subUnitDenominationSingle = " cent";
