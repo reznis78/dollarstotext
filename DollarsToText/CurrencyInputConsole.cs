@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DollarsToText
+namespace CurrencyNumberToText
 {
     public class CurrencyInputConsole : ICurrencyInput
     {
@@ -31,7 +31,7 @@ namespace DollarsToText
         {
             while (_convertBaseSuccess == false || _convertSubUnitSuccess == false)
             {
-                GetInput();
+                GetConsoleInput();
                 TrimUserInput(userInput);
                 CurrencySplitInput(_trimmedUserInput);
                 ConvertInput(_splitCurrency);
@@ -48,7 +48,7 @@ namespace DollarsToText
             _splitCurrency = input.Split(',').ToList();
         }
 
-        public void GetInput()
+        public void GetConsoleInput()
         {
             Console.WriteLine("Please enter a value and press enter to convert:");
             userInput = Console.ReadLine();
@@ -56,6 +56,7 @@ namespace DollarsToText
 
         public void ConvertInput(List<string> input)
         {
+            //Prevents the user from entering multiple comma's
             if (input.Count >= 3)
             {
                 Console.WriteLine("You have entered too many comma's, please try again");
@@ -66,7 +67,7 @@ namespace DollarsToText
 
                 TryParseBaseUnit(input[0]);
 
-                //Checks that the sub unit value is not a single char, which means the input was .1 for example
+                //Ensures that the user cannot enter ,3 or ,004, for example
                 if (input[1].Length != 2)
                 {
                     Console.WriteLine("You must enter two numbers for a sub unit");
@@ -78,6 +79,7 @@ namespace DollarsToText
                 }                
             }
 
+            //Determines that there is only a base unit, thus the sub unit success flag must also be set to true
             if (input.Count == 1)
             {
                 TryParseBaseUnit(input[0]);
@@ -87,7 +89,7 @@ namespace DollarsToText
 
         //The next two functions also includes a check 
         //to make sure that the resulting integer is not negative or too large
-        public void TryParseBaseUnit(string input)
+        void TryParseBaseUnit(string input)
         {
             _convertBaseSuccess = int.TryParse(input, out _baseUnit);
 
@@ -99,7 +101,7 @@ namespace DollarsToText
             CheckBaseIntSize(_baseUnit);    
         }
 
-        public void TryParseSubUnit(string input)
+        void TryParseSubUnit(string input)
         {
             _convertSubUnitSuccess = int.TryParse(input, out _subUnit);
 
@@ -111,7 +113,7 @@ namespace DollarsToText
             CheckSubUnitIntSize(_subUnit);
         }
 
-        public void CheckBaseIntSize(int input)
+        void CheckBaseIntSize(int input)
         {
             if (_baseUnit < 999999999 && _baseUnit >= 0)
             {
@@ -124,7 +126,7 @@ namespace DollarsToText
             }
         }
 
-        public void CheckSubUnitIntSize(int input)
+        void CheckSubUnitIntSize(int input)
         {
             if (_subUnit < 100 && _subUnit > 0)
             {
@@ -135,6 +137,29 @@ namespace DollarsToText
                 Console.WriteLine("Please enter a valid value for sub unit between 01 and 99");
                 _convertSubUnitSuccess = false;
             }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
+
+            result.AppendLine("CurrencyInputConsole :")
+                .Append("TrimmedUserInput : ").AppendLine(TrimmedUserInput)
+                .Append("ConvertBaseSuccess : ").AppendLine(ConvertBaseSuccess.ToString())
+                .Append("ConvertSubUnitSuccess : ").AppendLine(ConvertSubUnitSuccess.ToString())
+                .Append("BaseUnit : ").AppendLine(BaseUnit.ToString())
+                .Append("SubUnit : ").AppendLine(SubUnit.ToString());
+
+            if (SplitCurrency != null)
+            {
+                result.AppendLine("SplitCurrency : ");
+                foreach (var item in SplitCurrency)
+                {
+                    result.Append(item).Append(", ");
+                }
+            }
+
+            return result.ToString();
         }
     }
 }

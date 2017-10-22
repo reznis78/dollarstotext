@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DollarsToText.Tests
+namespace CurrencyNumberToText.Tests
 {
     [TestClass]
     public class InputUnitTests

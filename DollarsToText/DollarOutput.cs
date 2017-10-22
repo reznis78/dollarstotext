@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DollarsToText
+namespace CurrencyNumberToText
 {
     public class DollarOutput : ICurrencyOutput
     {
         public StringBuilder DollarCurrencyBuilder { get { return dollarCurrencyBuilder; } }
 
+        //By creating a new class and simply changing these values, you can easily output different currencies
+        //Remember to leave in a leading space, for the StringBuilder
         string baseDenominationSingle = " dollar";
         string baseDenominationPlural = " dollars";
         string subUnitDenominationSingle = " cent";
@@ -51,6 +53,20 @@ namespace DollarsToText
             {
                 dollarCurrencyBuilder.Append(subUnitDenominationPlural);
             }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
+
+            result.AppendLine("DollarOutput :")
+                .Append("baseDenominationSingle : ").AppendLine(baseDenominationSingle)
+                .Append("baseDenominationPlural : ").AppendLine(baseDenominationPlural)
+                .Append("subUnitDenominationSingle : ").AppendLine(subUnitDenominationSingle)
+                .Append("subUnitDenominationPlural : ").AppendLine(subUnitDenominationPlural)
+                .Append("DollarCurrencyBuilder : ").AppendLine(DollarCurrencyBuilder.ToString());
+
+            return result.ToString();
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DollarsToText
+namespace CurrencyNumberToText
 {
     public class ConvertBaseCurrency : ConvertSubUnit
     {
@@ -63,6 +63,7 @@ namespace DollarsToText
             
         }
 
+        //If editing the word values below, then take care with the spaces
         public void ConvertHundreds(int currencyValue)
         {
             _baseCurrencyString.Add(basicUnits[(currencyValue / 100)]);
@@ -151,6 +152,21 @@ namespace DollarsToText
                 currencyValue = currencyValue % 1000000;
                 ConvertCurrency(currencyValue);
             }           
+        }
+
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
+
+            if (BaseCurrencyString != null)
+            {
+                result.Append("ConvertBaseCurrency: ");
+                foreach (var item in BaseCurrencyString)
+                {
+                    result.Append(item).Append(", ");
+                }
+            }
+            return result.ToString();
         }
     }
 }
