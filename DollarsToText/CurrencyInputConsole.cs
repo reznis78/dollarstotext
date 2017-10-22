@@ -126,7 +126,7 @@ namespace DollarsToText
 
         public void CheckSubUnitIntSize(int input)
         {
-            if (_subUnit < 99 && _subUnit > 0)
+            if (_subUnit < 100 && _subUnit > 0)
             {
                 _convertSubUnitSuccess = true;
             }
