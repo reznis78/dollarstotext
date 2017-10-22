@@ -50,7 +50,7 @@ namespace DollarsToText
 
         public void GetInput()
         {
-            Console.WriteLine("Please enter a value:");
+            Console.WriteLine("Please enter a value and press enter to convert:");
             userInput = Console.ReadLine();
         }
 
