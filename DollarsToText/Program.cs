@@ -32,7 +32,18 @@ namespace DollarsToText
             }
             else
             {
-                Console.WriteLine("waiting for code");
+                ConvertBaseCurrency baseDollars = new ConvertBaseCurrency();
+                ConvertSubUnit subUnits = new ConvertSubUnit();
+
+                DollarOutput dollarAndCentsOutput = new DollarOutput();
+
+                baseDollars.ConvertCurrency(getUserInput.BaseUnit);
+                subUnits.ConvertCurrency(getUserInput.SubUnit);
+
+                dollarAndCentsOutput.BaseStringBuilder(baseDollars.BaseCurrencyString);
+                dollarAndCentsOutput.SubUnitStringBuilder(subUnits.SubUnitString);
+
+                Console.WriteLine(dollarAndCentsOutput.DollarCurrencyBuilder);
             }
             
         }
