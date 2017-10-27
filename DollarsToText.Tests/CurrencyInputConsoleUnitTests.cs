@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CurrencyNumberToText.Tests
 {
     [TestClass]
-    public class InputUnitTests
+    public class CurrencyInputConsoleUnitTests
     {
         //Test to trim currency input
 

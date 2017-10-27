@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CurrencyNumberToText.Tests
 {
     [TestClass]
-    public class ConvertTests
+    public class ConvertCurrencyEnglishUnitTests
     {
         [TestMethod]
         public void ZeroNumber()
