@@ -89,7 +89,7 @@ namespace CurrencyNumberToText
 
         //The next two functions also includes a check 
         //to make sure that the resulting integer is not negative or too large
-        void TryParseBaseUnit(string input)
+        public void TryParseBaseUnit(string input)
         {
             _convertBaseSuccess = int.TryParse(input, out _baseUnit);
 
@@ -101,7 +101,7 @@ namespace CurrencyNumberToText
             CheckBaseIntSize(_baseUnit);    
         }
 
-        void TryParseSubUnit(string input)
+        public void TryParseSubUnit(string input)
         {
             _convertSubUnitSuccess = int.TryParse(input, out _subUnit);
 
