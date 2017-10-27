@@ -29,27 +29,27 @@ namespace CurrencyNumberToText
             //Decision whether the parsed input is just a base unit or has a sub unit component and outputs the result
             if (getUserInput.SubUnit == 0)
             {
-                ConvertBaseCurrency baseDollarsOnly = new ConvertBaseCurrency();
+                ConvertCurrencyEnglish baseDollarsOnly = new ConvertCurrencyEnglish();
                 DollarOutputBuilder baseDollarOutputOnly = new DollarOutputBuilder();
 
                 baseDollarsOnly.ConvertCurrency(getUserInput.BaseUnit);
 
-                baseDollarOutputOnly.BaseStringBuilder(baseDollarsOnly.BaseCurrencyString);
+                baseDollarOutputOnly.BaseStringBuilder(baseDollarsOnly.UnitString);
 
                 Console.WriteLine(baseDollarOutputOnly.DollarCurrencyBuilder);
             }
             else
             {
-                ConvertBaseCurrency baseDollars = new ConvertBaseCurrency();
-                ConvertSubUnit subUnits = new ConvertSubUnit();
-
+                ConvertCurrencyEnglish baseDollars = new ConvertCurrencyEnglish();
+                ConvertCurrencyEnglish subUnitCents = new ConvertCurrencyEnglish();
+                
                 DollarOutputBuilder dollarAndCentsOutput = new DollarOutputBuilder();
 
                 baseDollars.ConvertCurrency(getUserInput.BaseUnit);
-                subUnits.ConvertCurrency(getUserInput.SubUnit);
-
-                dollarAndCentsOutput.BaseStringBuilder(baseDollars.BaseCurrencyString);
-                dollarAndCentsOutput.SubUnitStringBuilder(subUnits.SubUnitString);
+                subUnitCents.ConvertCurrency(getUserInput.SubUnit);
+                
+                dollarAndCentsOutput.BaseStringBuilder(baseDollars.UnitString);
+                dollarAndCentsOutput.SubUnitStringBuilder(subUnitCents.UnitString);
 
                 Console.WriteLine(dollarAndCentsOutput.DollarCurrencyBuilder);
             }

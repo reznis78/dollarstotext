@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CurrencyNumberToText
 {
-    public class ConvertBaseCurrency : ConvertSubUnit
+    public class ConvertCurrencyEnglish : IConvertCurrencyToText
     {
         public static string[] basicUnits =
                 {
@@ -46,11 +46,11 @@ namespace CurrencyNumberToText
                 "ninety",
                 };
 
-        public List<string> BaseCurrencyString { get { return _baseCurrencyString; } }
+        public List<string> UnitString { get { return _baseCurrencyString; } }
 
         protected List<string> _baseCurrencyString = new List<string>();
 
-        public override void ConvertCurrency(int currencyValue)
+        public void ConvertCurrency(int currencyValue)
         {
             if (currencyValue == 0)
             {
@@ -89,7 +89,7 @@ namespace CurrencyNumberToText
             }
         }
 
-        public override void ConvertTens(int currencyValue)
+        public void ConvertTens(int currencyValue)
         {
             _baseCurrencyString.Add(largeUnits[(currencyValue / 10) - 1]);
 
@@ -196,10 +196,10 @@ namespace CurrencyNumberToText
         {
             StringBuilder result = new StringBuilder();
 
-            if (BaseCurrencyString != null)
+            if (UnitString != null)
             {
                 result.Append("ConvertBaseCurrency: ");
-                foreach (var item in BaseCurrencyString)
+                foreach (var item in UnitString)
                 {
                     result.Append(item).Append(", ");
                 }
