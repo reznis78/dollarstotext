@@ -30,7 +30,7 @@ namespace CurrencyNumberToText
             if (getUserInput.SubUnit == 0)
             {
                 ConvertBaseCurrency baseDollarsOnly = new ConvertBaseCurrency();
-                DollarOutput baseDollarOutputOnly = new DollarOutput();
+                DollarOutputBuilder baseDollarOutputOnly = new DollarOutputBuilder();
 
                 baseDollarsOnly.ConvertCurrency(getUserInput.BaseUnit);
 
@@ -43,7 +43,7 @@ namespace CurrencyNumberToText
                 ConvertBaseCurrency baseDollars = new ConvertBaseCurrency();
                 ConvertSubUnit subUnits = new ConvertSubUnit();
 
-                DollarOutput dollarAndCentsOutput = new DollarOutput();
+                DollarOutputBuilder dollarAndCentsOutput = new DollarOutputBuilder();
 
                 baseDollars.ConvertCurrency(getUserInput.BaseUnit);
                 subUnits.ConvertCurrency(getUserInput.SubUnit);

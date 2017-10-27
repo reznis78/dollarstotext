@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CurrencyNumberToText
 {
-    public class DollarOutput : ICurrencyOutput
+    public class DollarOutputBuilder : ICurrencyOutputBuilder
     {
         public StringBuilder DollarCurrencyBuilder { get { return dollarCurrencyBuilder; } }
 

@@ -15,7 +15,7 @@ namespace CurrencyNumberToText.Tests
         {
             List<string> input = new List<string>() { "one" };
 
-            DollarOutput testOutput = new DollarOutput();
+            DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
             testOutput.BaseStringBuilder(input);
 
@@ -29,7 +29,7 @@ namespace CurrencyNumberToText.Tests
         {
             List<string> input = new List<string>() { "zero" };
 
-            DollarOutput testOutput = new DollarOutput();
+            DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
             testOutput.BaseStringBuilder(input);
 
@@ -43,7 +43,7 @@ namespace CurrencyNumberToText.Tests
         {
             List<string> input = new List<string>() { "five", " hundred and ", "five" };
 
-            DollarOutput testOutput = new DollarOutput();
+            DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
             testOutput.BaseStringBuilder(input);
 
@@ -58,7 +58,7 @@ namespace CurrencyNumberToText.Tests
             List<string> baseInput = new List<string>() { "five", " hundred and ", "five" };
             List<string> subUnitInput = new List<string>() { "one" };
 
-            DollarOutput testOutput = new DollarOutput();
+            DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
             testOutput.BaseStringBuilder(baseInput);
             testOutput.SubUnitStringBuilder(subUnitInput);
@@ -74,7 +74,7 @@ namespace CurrencyNumberToText.Tests
             List<string> baseInput = new List<string>() { "one" };
             List<string> subUnitInput = new List<string>() { "twenty" };
 
-            DollarOutput testOutput = new DollarOutput();
+            DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
             testOutput.BaseStringBuilder(baseInput);
             testOutput.SubUnitStringBuilder(subUnitInput);
@@ -90,7 +90,7 @@ namespace CurrencyNumberToText.Tests
             List<string> baseInput = new List<string>() { "ninety", "-", "five" };
             List<string> subUnitInput = new List<string>() { "twenty", "-", "three" };
 
-            DollarOutput testOutput = new DollarOutput();
+            DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
             testOutput.BaseStringBuilder(baseInput);
             testOutput.SubUnitStringBuilder(subUnitInput);
