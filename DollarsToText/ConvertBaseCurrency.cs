@@ -8,6 +8,44 @@ namespace CurrencyNumberToText
 {
     public class ConvertBaseCurrency : ConvertSubUnit
     {
+        public static string[] basicUnits =
+                {
+                "",
+                "one",
+                "two",
+                "three",
+                "four",
+                "five",
+                "six",
+                "seven",
+                "eight",
+                "nine",
+                "ten",
+                "eleven",
+                "twelve",
+                "thirteen",
+                "fourteen",
+                "fifteen",
+                "sixteen",
+                "seventeen",
+                "eighteen",
+                "nineteen",
+                "twenty"
+                };
+
+        public static string[] largeUnits =
+                {
+                "",
+                "twenty",
+                "thirty",
+                "forty",
+                "fifty",
+                "sixty",
+                "seventy",
+                "eighty",
+                "ninety",
+                };
+
         public List<string> BaseCurrencyString { get { return _baseCurrencyString; } }
 
         protected List<string> _baseCurrencyString = new List<string>();
