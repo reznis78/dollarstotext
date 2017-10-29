@@ -46,26 +46,26 @@ namespace CurrencyNumberToText
                 "ninety",
                 };
 
-        public List<string> UnitString { get { return _baseCurrencyString; } }
+        public List<string> UnitString { get { return _unitString; } }
 
-        protected List<string> _baseCurrencyString = new List<string>();
+        protected List<string> _unitString = new List<string>();
 
         public void ConvertCurrency(int currencyValue)
         {
             if (currencyValue == 0)
             {
-                _baseCurrencyString.Add("zero");
+                _unitString.Add("zero");
             }
 
-            if ((currencyValue == 1) && (_baseCurrencyString.Count == 0))
+            if ((currencyValue == 1) && (_unitString.Count == 0))
             {
-                _baseCurrencyString.Add(basicUnits[currencyValue]);
+                _unitString.Add(basicUnits[currencyValue]);
                 currencyValue = 0;
             }
 
             if ((currencyValue <= 20) && (currencyValue >= 1))
             {
-                _baseCurrencyString.Add(basicUnits[currencyValue]);
+                _unitString.Add(basicUnits[currencyValue]);
             }
 
             if ((currencyValue <= 99) && (currencyValue > 20))
@@ -91,12 +91,12 @@ namespace CurrencyNumberToText
 
         public void ConvertTens(int currencyValue)
         {
-            _baseCurrencyString.Add(largeUnits[(currencyValue / 10) - 1]);
+            _unitString.Add(largeUnits[(currencyValue / 10) - 1]);
 
             if (currencyValue % 10 != 0)
             {
-                _baseCurrencyString.Add("-");
-                _baseCurrencyString.Add(basicUnits[currencyValue % 10]);
+                _unitString.Add("-");
+                _unitString.Add(basicUnits[currencyValue % 10]);
             }
             
         }
@@ -104,15 +104,15 @@ namespace CurrencyNumberToText
         //If editing the word values below, then take care with the spaces
         public void ConvertHundreds(int currencyValue)
         {
-            _baseCurrencyString.Add(basicUnits[(currencyValue / 100)]);
+            _unitString.Add(basicUnits[(currencyValue / 100)]);
             
             if (currencyValue % 100 == 0)
             {
-                _baseCurrencyString.Add(" hundred");
+                _unitString.Add(" hundred");
             }
             else
             {
-                _baseCurrencyString.Add(" hundred ");
+                _unitString.Add(" hundred ");
             }
 
             currencyValue = currencyValue % 100;
@@ -124,7 +124,7 @@ namespace CurrencyNumberToText
 
             if (currencyValue <= 20 && currencyValue >= 1)
             {
-                _baseCurrencyString.Add(basicUnits[currencyValue]);
+                _unitString.Add(basicUnits[currencyValue]);
             }
         }
 
@@ -144,16 +144,16 @@ namespace CurrencyNumberToText
 
             if ((currencyValue / 1000) <= 20)
             {
-                _baseCurrencyString.Add(basicUnits[currencyValue / 1000]);
+                _unitString.Add(basicUnits[currencyValue / 1000]);
             }
 
             if (currencyValue % 1000 == 0)
             {
-                _baseCurrencyString.Add(" thousand");
+                _unitString.Add(" thousand");
             }
             else
             {
-                _baseCurrencyString.Add(" thousand ");
+                _unitString.Add(" thousand ");
                 currencyValue = currencyValue % 1000;
                 ConvertCurrency(currencyValue);
             }    
@@ -177,16 +177,16 @@ namespace CurrencyNumberToText
 
             if ((currencyValue / 1000000) <= 20)
             {
-                _baseCurrencyString.Add(basicUnits[currencyValue / 1000000]);
+                _unitString.Add(basicUnits[currencyValue / 1000000]);
             }
 
             if (currencyValue % 1000000 == 0)
             {
-                _baseCurrencyString.Add(" million");
+                _unitString.Add(" million");
             }
             else
             {
-                _baseCurrencyString.Add(" million ");
+                _unitString.Add(" million ");
                 currencyValue = currencyValue % 1000000;
                 ConvertCurrency(currencyValue);
             }           
