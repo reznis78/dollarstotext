@@ -61,13 +61,13 @@ namespace CurrencyNumberToText
 
             if ((currencyValue == 1) && (_unitString.Count == 0))
             {
-                _unitString.Add(basicUnits[currencyValue]);
+                AddBasicUnit(currencyValue);
                 currencyValue = 0;
             }
 
             if ((currencyValue <= 20) && (currencyValue >= 1))
             {
-                _unitString.Add(basicUnits[currencyValue]);
+                AddBasicUnit(currencyValue);
             }
 
             if ((currencyValue <= 99) && (currencyValue > 20))
@@ -128,7 +128,7 @@ namespace CurrencyNumberToText
 
             if (currencyValue <= 20 && currencyValue >= 1)
             {
-                _unitString.Add(basicUnits[currencyValue]);
+                AddBasicUnit(currencyValue);
             }
         }
 
@@ -159,9 +159,7 @@ namespace CurrencyNumberToText
             if ((currencyValue % unitMultiplier != 0) && (unitMultiplier == 1000))
             {
                 _unitString.Add(" thousand ");
-                currencyValue = currencyValue % unitMultiplier;
-                ConvertCurrency(currencyValue);
-
+                UpdateCurrencyValue(currencyValue);
             }
 
             if ((currencyValue % unitMultiplier == 0) && (unitMultiplier == 1000000))
@@ -172,11 +170,20 @@ namespace CurrencyNumberToText
             if ((currencyValue % unitMultiplier != 0) && (unitMultiplier == 1000000))
             {
                 _unitString.Add(" million ");
-                currencyValue = currencyValue % unitMultiplier;
-                ConvertCurrency(currencyValue);
+                UpdateCurrencyValue(currencyValue);
             }     
         }
         
+        void UpdateCurrencyValue(int currencyValue)
+        {
+            currencyValue = currencyValue % unitMultiplier;
+            ConvertCurrency(currencyValue);
+        }
+
+        void AddBasicUnit(int currencyValue)
+        {
+            _unitString.Add(basicUnits[currencyValue]);
+        }
 
         public override string ToString()
         {
