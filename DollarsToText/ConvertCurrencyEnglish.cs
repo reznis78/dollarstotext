@@ -50,6 +50,8 @@ namespace CurrencyNumberToText
 
         protected List<string> _unitString = new List<string>();
 
+        int unitMultiplier;
+
         public void ConvertCurrency(int currencyValue)
         {
             if (currencyValue == 0)
@@ -80,12 +82,14 @@ namespace CurrencyNumberToText
 
             if ((currencyValue <= 999999) && (currencyValue >= 1000))
             {
-                ConvertThousands(currencyValue);
+                unitMultiplier = 1000;
+                ConvertLargeUnit(currencyValue, unitMultiplier);
             }
 
             if ((currencyValue <= 999999999) && (currencyValue >= 1000000))
             {
-                ConvertMillions(currencyValue);
+                unitMultiplier = 1000000;
+                ConvertLargeUnit(currencyValue, unitMultiplier);
             }
         }
 
@@ -128,69 +132,51 @@ namespace CurrencyNumberToText
             }
         }
 
-        public void ConvertThousands(int currencyValue)
+        public void ConvertLargeUnit(int currencyValue, int unitMultiplier)
         {
-            if ((currencyValue / 1000) > 99)
+            if ((currencyValue / unitMultiplier) > 99)
             {
-                int adjustedValue = currencyValue / 1000;
+                int adjustedValue = currencyValue / unitMultiplier;
                 ConvertHundreds(adjustedValue);
             }
 
-            if (((currencyValue / 1000) < 100) && ((currencyValue / 1000) > 20))
+            if (((currencyValue / unitMultiplier) < 100) && ((currencyValue / unitMultiplier) > 20))
             {
-                int adjustedValue = currencyValue / 1000;
+                int adjustedValue = currencyValue / unitMultiplier;
                 ConvertTens(adjustedValue);
             }
 
-            if ((currencyValue / 1000) <= 20)
+            if ((currencyValue / unitMultiplier) <= 20)
             {
-                _unitString.Add(basicUnits[currencyValue / 1000]);
+                _unitString.Add(basicUnits[currencyValue / unitMultiplier]);
             }
 
-            if (currencyValue % 1000 == 0)
+            if ((currencyValue % unitMultiplier == 0) && (unitMultiplier == 1000))
             {
                 _unitString.Add(" thousand");
             }
-            else
+
+            if ((currencyValue % unitMultiplier != 0) && (unitMultiplier == 1000))
             {
                 _unitString.Add(" thousand ");
-                currencyValue = currencyValue % 1000;
+                currencyValue = currencyValue % unitMultiplier;
                 ConvertCurrency(currencyValue);
-            }    
 
-            
-        }
-
-        public void ConvertMillions(int currencyValue)
-        {
-            if ((currencyValue / 1000000) > 99)
-            {
-                int adjustedValue = currencyValue / 1000000;
-                ConvertHundreds(adjustedValue);
             }
 
-            if (((currencyValue / 1000000) < 100) && ((currencyValue / 1000000) > 20))
-            {
-                int adjustedValue = currencyValue / 1000000;
-                ConvertTens(adjustedValue);
-            }
-
-            if ((currencyValue / 1000000) <= 20)
-            {
-                _unitString.Add(basicUnits[currencyValue / 1000000]);
-            }
-
-            if (currencyValue % 1000000 == 0)
+            if ((currencyValue % unitMultiplier == 0) && (unitMultiplier == 1000000))
             {
                 _unitString.Add(" million");
             }
-            else
+
+            if ((currencyValue % unitMultiplier != 0) && (unitMultiplier == 1000000))
             {
                 _unitString.Add(" million ");
-                currencyValue = currencyValue % 1000000;
+                currencyValue = currencyValue % unitMultiplier;
                 ConvertCurrency(currencyValue);
-            }           
+            }     
         }
+        
 
         public override string ToString()
         {
