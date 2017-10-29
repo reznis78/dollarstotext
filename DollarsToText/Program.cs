@@ -30,9 +30,10 @@ namespace CurrencyNumberToText
             if (getUserInput.SubUnit == 0)
             {
                 ConvertCurrencyEnglish dollarsOnly = new ConvertCurrencyEnglish();
-                DollarOutputBuilder dollarOnlyOutputBuilder = new DollarOutputBuilder();
 
                 dollarsOnly.ConvertCurrency(getUserInput.BaseUnit);
+
+                DollarOutputBuilder dollarOnlyOutputBuilder = new DollarOutputBuilder();
 
                 dollarOnlyOutputBuilder.AddBaseString(dollarsOnly.UnitString);
 
@@ -42,12 +43,12 @@ namespace CurrencyNumberToText
             {
                 ConvertCurrencyEnglish dollars = new ConvertCurrencyEnglish();
                 ConvertCurrencyEnglish cents = new ConvertCurrencyEnglish();
-                
-                DollarOutputBuilder dollarAndCentsOutputBuilder = new DollarOutputBuilder();
 
                 dollars.ConvertCurrency(getUserInput.BaseUnit);
                 cents.ConvertCurrency(getUserInput.SubUnit);
-                
+
+                DollarOutputBuilder dollarAndCentsOutputBuilder = new DollarOutputBuilder();
+
                 dollarAndCentsOutputBuilder.AddBaseString(dollars.UnitString);
                 dollarAndCentsOutputBuilder.AddSubUnitString(cents.UnitString);
 
