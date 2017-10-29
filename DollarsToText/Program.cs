@@ -34,7 +34,7 @@ namespace CurrencyNumberToText
 
                 dollarsOnly.ConvertCurrency(getUserInput.BaseUnit);
 
-                dollarOnlyOutputBuilder.BaseStringBuilder(dollarsOnly.UnitString);
+                dollarOnlyOutputBuilder.AddBaseString(dollarsOnly.UnitString);
 
                 Console.WriteLine(dollarOnlyOutputBuilder.DollarCurrencyBuilder);
             }
@@ -48,8 +48,8 @@ namespace CurrencyNumberToText
                 dollars.ConvertCurrency(getUserInput.BaseUnit);
                 cents.ConvertCurrency(getUserInput.SubUnit);
                 
-                dollarAndCentsOutputBuilder.BaseStringBuilder(dollars.UnitString);
-                dollarAndCentsOutputBuilder.SubUnitStringBuilder(cents.UnitString);
+                dollarAndCentsOutputBuilder.AddBaseString(dollars.UnitString);
+                dollarAndCentsOutputBuilder.AddSubUnitString(cents.UnitString);
 
                 Console.WriteLine(dollarAndCentsOutputBuilder.DollarCurrencyBuilder);
             }

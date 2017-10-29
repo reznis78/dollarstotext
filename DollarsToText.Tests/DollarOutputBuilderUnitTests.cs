@@ -17,7 +17,7 @@ namespace CurrencyNumberToText.Tests
 
             DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
-            testOutput.BaseStringBuilder(input);
+            testOutput.AddBaseString(input);
 
             string result = testOutput.DollarCurrencyBuilder.ToString();
 
@@ -31,7 +31,7 @@ namespace CurrencyNumberToText.Tests
 
             DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
-            testOutput.BaseStringBuilder(input);
+            testOutput.AddBaseString(input);
 
             string result = testOutput.DollarCurrencyBuilder.ToString();
 
@@ -45,7 +45,7 @@ namespace CurrencyNumberToText.Tests
 
             DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
-            testOutput.BaseStringBuilder(input);
+            testOutput.AddBaseString(input);
 
             string result = testOutput.DollarCurrencyBuilder.ToString();
 
@@ -60,8 +60,8 @@ namespace CurrencyNumberToText.Tests
 
             DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
-            testOutput.BaseStringBuilder(baseInput);
-            testOutput.SubUnitStringBuilder(subUnitInput);
+            testOutput.AddBaseString(baseInput);
+            testOutput.AddSubUnitString(subUnitInput);
 
             string result = testOutput.DollarCurrencyBuilder.ToString();
 
@@ -76,8 +76,8 @@ namespace CurrencyNumberToText.Tests
 
             DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
-            testOutput.BaseStringBuilder(baseInput);
-            testOutput.SubUnitStringBuilder(subUnitInput);
+            testOutput.AddBaseString(baseInput);
+            testOutput.AddSubUnitString(subUnitInput);
 
             string result = testOutput.DollarCurrencyBuilder.ToString();
 
@@ -92,8 +92,8 @@ namespace CurrencyNumberToText.Tests
 
             DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
-            testOutput.BaseStringBuilder(baseInput);
-            testOutput.SubUnitStringBuilder(subUnitInput);
+            testOutput.AddBaseString(baseInput);
+            testOutput.AddSubUnitString(subUnitInput);
 
             string result = testOutput.DollarCurrencyBuilder.ToString();
 
