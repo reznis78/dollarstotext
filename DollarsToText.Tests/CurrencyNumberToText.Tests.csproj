@@ -50,10 +50,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ConvertLogicUnitTests.cs" />
-    <Compile Include="StringBuilderUnitTests.cs" />
+    <Compile Include="ConvertCurrencyUnitTests.cs" />
+    <Compile Include="DollarOutputBuilderUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="InputUnitTests.cs" />
+    <Compile Include="CurrencyInputConsoleUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DollarsToText\CurrencyNumberToText.csproj">

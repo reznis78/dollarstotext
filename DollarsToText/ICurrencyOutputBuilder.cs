@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CurrencyNumberToText
 {
-    public interface ICurrencyOutput
+    public interface ICurrencyOutputBuilder
     {
-        void BaseStringBuilder(List<string> baseInput);
-        void SubUnitStringBuilder(List<string> subUnitInput);
+        void AddBaseString(List<string> baseInput);
+        void AddSubUnitString(List<string> subUnitInput);
     }
 }

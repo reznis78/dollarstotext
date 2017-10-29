@@ -43,13 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConvertBaseCurrency.cs" />
-    <Compile Include="ConvertSubUnit.cs" />
+    <Compile Include="ConvertCurrencyEnglish.cs" />
     <Compile Include="CurrencyInputConsole.cs" />
-    <Compile Include="DollarOutput.cs" />
+    <Compile Include="DollarOutputBuilder.cs" />
     <Compile Include="IConvertCurrencyToText.cs" />
     <Compile Include="ICurrencyInput.cs" />
-    <Compile Include="ICurrencyOutput.cs" />
+    <Compile Include="ICurrencyOutputBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

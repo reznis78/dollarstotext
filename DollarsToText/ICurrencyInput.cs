@@ -10,5 +10,7 @@ namespace CurrencyNumberToText
     {
         void CurrencySplitInput(string userInput);
         void CurrencyParser();
+        void TryParseBaseUnit(string input);
+        void TryParseSubUnit(string input);
     }
 }

@@ -29,29 +29,30 @@ namespace CurrencyNumberToText
             //Decision whether the parsed input is just a base unit or has a sub unit component and outputs the result
             if (getUserInput.SubUnit == 0)
             {
-                ConvertBaseCurrency baseDollarsOnly = new ConvertBaseCurrency();
-                DollarOutput baseDollarOutputOnly = new DollarOutput();
+                ConvertCurrencyEnglish dollarsOnly = new ConvertCurrencyEnglish();
 
-                baseDollarsOnly.ConvertCurrency(getUserInput.BaseUnit);
+                dollarsOnly.ConvertCurrency(getUserInput.BaseUnit);
 
-                baseDollarOutputOnly.BaseStringBuilder(baseDollarsOnly.BaseCurrencyString);
+                DollarOutputBuilder dollarOnlyOutputBuilder = new DollarOutputBuilder();
 
-                Console.WriteLine(baseDollarOutputOnly.DollarCurrencyBuilder);
+                dollarOnlyOutputBuilder.AddBaseString(dollarsOnly.UnitString);
+
+                Console.WriteLine(dollarOnlyOutputBuilder.DollarCurrencyBuilder);
             }
             else
             {
-                ConvertBaseCurrency baseDollars = new ConvertBaseCurrency();
-                ConvertSubUnit subUnits = new ConvertSubUnit();
+                ConvertCurrencyEnglish dollars = new ConvertCurrencyEnglish();
+                ConvertCurrencyEnglish cents = new ConvertCurrencyEnglish();
 
-                DollarOutput dollarAndCentsOutput = new DollarOutput();
+                dollars.ConvertCurrency(getUserInput.BaseUnit);
+                cents.ConvertCurrency(getUserInput.SubUnit);
 
-                baseDollars.ConvertCurrency(getUserInput.BaseUnit);
-                subUnits.ConvertCurrency(getUserInput.SubUnit);
+                DollarOutputBuilder dollarAndCentsOutputBuilder = new DollarOutputBuilder();
 
-                dollarAndCentsOutput.BaseStringBuilder(baseDollars.BaseCurrencyString);
-                dollarAndCentsOutput.SubUnitStringBuilder(subUnits.SubUnitString);
+                dollarAndCentsOutputBuilder.AddBaseString(dollars.UnitString);
+                dollarAndCentsOutputBuilder.AddSubUnitString(cents.UnitString);
 
-                Console.WriteLine(dollarAndCentsOutput.DollarCurrencyBuilder);
+                Console.WriteLine(dollarAndCentsOutputBuilder.DollarCurrencyBuilder);
             }
         }
     }

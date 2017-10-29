@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 namespace CurrencyNumberToText.Tests
 {
     [TestClass]
-    public class StringBuilderUnitTests
+    public class DollarOutputBuilderUnitTests
     {
         [TestMethod]
         public void StringBuilderOneBaseOnly()
         {
             List<string> input = new List<string>() { "one" };
 
-            DollarOutput testOutput = new DollarOutput();
+            DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
-            testOutput.BaseStringBuilder(input);
+            testOutput.AddBaseString(input);
 
             string result = testOutput.DollarCurrencyBuilder.ToString();
 
@@ -29,9 +29,9 @@ namespace CurrencyNumberToText.Tests
         {
             List<string> input = new List<string>() { "zero" };
 
-            DollarOutput testOutput = new DollarOutput();
+            DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
-            testOutput.BaseStringBuilder(input);
+            testOutput.AddBaseString(input);
 
             string result = testOutput.DollarCurrencyBuilder.ToString();
 
@@ -43,9 +43,9 @@ namespace CurrencyNumberToText.Tests
         {
             List<string> input = new List<string>() { "five", " hundred and ", "five" };
 
-            DollarOutput testOutput = new DollarOutput();
+            DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
-            testOutput.BaseStringBuilder(input);
+            testOutput.AddBaseString(input);
 
             string result = testOutput.DollarCurrencyBuilder.ToString();
 
@@ -58,10 +58,10 @@ namespace CurrencyNumberToText.Tests
             List<string> baseInput = new List<string>() { "five", " hundred and ", "five" };
             List<string> subUnitInput = new List<string>() { "one" };
 
-            DollarOutput testOutput = new DollarOutput();
+            DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
-            testOutput.BaseStringBuilder(baseInput);
-            testOutput.SubUnitStringBuilder(subUnitInput);
+            testOutput.AddBaseString(baseInput);
+            testOutput.AddSubUnitString(subUnitInput);
 
             string result = testOutput.DollarCurrencyBuilder.ToString();
 
@@ -74,10 +74,10 @@ namespace CurrencyNumberToText.Tests
             List<string> baseInput = new List<string>() { "one" };
             List<string> subUnitInput = new List<string>() { "twenty" };
 
-            DollarOutput testOutput = new DollarOutput();
+            DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
-            testOutput.BaseStringBuilder(baseInput);
-            testOutput.SubUnitStringBuilder(subUnitInput);
+            testOutput.AddBaseString(baseInput);
+            testOutput.AddSubUnitString(subUnitInput);
 
             string result = testOutput.DollarCurrencyBuilder.ToString();
 
@@ -90,10 +90,10 @@ namespace CurrencyNumberToText.Tests
             List<string> baseInput = new List<string>() { "ninety", "-", "five" };
             List<string> subUnitInput = new List<string>() { "twenty", "-", "three" };
 
-            DollarOutput testOutput = new DollarOutput();
+            DollarOutputBuilder testOutput = new DollarOutputBuilder();
 
-            testOutput.BaseStringBuilder(baseInput);
-            testOutput.SubUnitStringBuilder(subUnitInput);
+            testOutput.AddBaseString(baseInput);
+            testOutput.AddSubUnitString(subUnitInput);
 
             string result = testOutput.DollarCurrencyBuilder.ToString();
 

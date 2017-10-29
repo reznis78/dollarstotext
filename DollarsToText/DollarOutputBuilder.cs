@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CurrencyNumberToText
 {
-    public class DollarOutput : ICurrencyOutput
+    public class DollarOutputBuilder : ICurrencyOutputBuilder
     {
         public StringBuilder DollarCurrencyBuilder { get { return dollarCurrencyBuilder; } }
 
@@ -19,7 +19,7 @@ namespace CurrencyNumberToText
 
         StringBuilder dollarCurrencyBuilder = new StringBuilder();
 
-        public void BaseStringBuilder(List<string> baseInput)
+        public void AddBaseString(List<string> baseInput)
         {
             foreach (var item in baseInput)
             {
@@ -36,7 +36,7 @@ namespace CurrencyNumberToText
             }
         }
 
-        public void SubUnitStringBuilder(List<string> subUnitInput)
+        public void AddSubUnitString(List<string> subUnitInput)
         {
             dollarCurrencyBuilder.Append(" and ");
             
